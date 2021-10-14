@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
+		235280132718B2E700ACA356 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280122718B2E700ACA356 /* HomeView.swift */; };
+		235280152718B3E700ACA356 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280142718B3E700ACA356 /* ProjectsView.swift */; };
 		238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC82C2717412F006E1BDC /* BuloApp.swift */; };
 		238AC82F2717412F006E1BDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC82E2717412F006E1BDC /* ContentView.swift */; };
 		238AC83127174130006E1BDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238AC83027174130006E1BDC /* Assets.xcassets */; };
@@ -16,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
+		235280102718B15200ACA356 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		235280122718B2E700ACA356 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		235280142718B3E700ACA356 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		238AC8292717412F006E1BDC /* Bulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238AC82C2717412F006E1BDC /* BuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloApp.swift; sourceTree = "<group>"; };
 		238AC82E2717412F006E1BDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,17 +38,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235280112718B15200ACA356 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2352800F2718B15200ACA356 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				235280102718B15200ACA356 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		238AC8202717412F006E1BDC = {
 			isa = PBXGroup;
 			children = (
 				238AC82B2717412F006E1BDC /* Bulo */,
 				238AC82A2717412F006E1BDC /* Products */,
+				2352800F2718B15200ACA356 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,9 +73,12 @@
 		238AC82B2717412F006E1BDC /* Bulo */ = {
 			isa = PBXGroup;
 			children = (
+				2352800E2718B0ED00ACA356 /* Bulo.entitlements */,
 				238AC83F27174F9F006E1BDC /* Info.plist */,
 				238AC82C2717412F006E1BDC /* BuloApp.swift */,
 				238AC82E2717412F006E1BDC /* ContentView.swift */,
+				235280122718B2E700ACA356 /* HomeView.swift */,
+				235280142718B3E700ACA356 /* ProjectsView.swift */,
 				238AC83A271741E0006E1BDC /* Main.xcdatamodeld */,
 				238AC83D27174468006E1BDC /* DataController.swift */,
 				238AC83027174130006E1BDC /* Assets.xcassets */,
@@ -145,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
+				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bulo/Bulo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bulo/Preview Content\"";
@@ -307,6 +330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bulo/Bulo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bulo/Preview Content\"";
