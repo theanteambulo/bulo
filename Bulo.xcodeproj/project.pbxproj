@@ -16,6 +16,8 @@
 		238AC83427174130006E1BDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238AC83327174130006E1BDC /* Preview Assets.xcassets */; };
 		238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83A271741E0006E1BDC /* Main.xcdatamodeld */; };
 		238AC83E27174468006E1BDC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83D27174468006E1BDC /* DataController.swift */; };
+		23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
+		23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		238AC83B271741E0006E1BDC /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		238AC83D27174468006E1BDC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		238AC83F27174F9F006E1BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataExtensions.swift"; sourceTree = "<group>"; };
+		23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				235280142718B3E700ACA356 /* ProjectsView.swift */,
 				238AC83A271741E0006E1BDC /* Main.xcdatamodeld */,
 				238AC83D27174468006E1BDC /* DataController.swift */,
+				23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */,
+				23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */,
 				238AC83027174130006E1BDC /* Assets.xcassets */,
 				238AC83227174130006E1BDC /* Preview Content */,
 			);
@@ -167,7 +173,9 @@
 			files = (
 				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
+				23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
+				23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */,
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
