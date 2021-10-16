@@ -11,6 +11,9 @@ struct ProjectsView: View {
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
     
+    static let openTag: String? = "Open"
+    static let closedTag: String? = "Closed"
+    
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
         
@@ -25,17 +28,19 @@ struct ProjectsView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(projects.wrappedValue) { project in
-                Section(header: Text(project.projectTitle)) {
-                    ForEach(project.projectItems) { item in
-                        Text(item.itemTitle)
+        NavigationView {
+            List {
+                ForEach(projects.wrappedValue) { project in
+                    Section(header: Text(project.projectTitle)) {
+                        ForEach(project.projectItems) { item in
+                            Text(item.itemTitle)
+                        }
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
         }
-        .listStyle(InsetGroupedListStyle())
-        .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
     }
 }
 
