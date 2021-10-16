@@ -30,14 +30,14 @@ struct EditItemView: View {
         Form {
             Section(header: Text("Basic Settings")) {
                 TextField("Item name",
-                          text: $title)
+                          text: $title.onChange(update))
                 TextField("Description",
-                          text: $detail)
+                          text: $detail.onChange(update))
             }
             
             Section(header: Text("Priority")) {
                 Picker("Priority",
-                       selection: $priority) {
+                       selection: $priority.onChange(update)) {
                     Text("Low")
                         .tag(1)
                     Text("Medium")
@@ -50,11 +50,11 @@ struct EditItemView: View {
             
             Section {
                 Toggle("Mark Completed",
-                       isOn: $completed)
+                       isOn: $completed.onChange(update))
             }
         }
         .navigationTitle("Edit Item")
-        .onDisappear(perform: update)
+        .onDisappear(perform: dataController.save)
     }
     
     func update() {

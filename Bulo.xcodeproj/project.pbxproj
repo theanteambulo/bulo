@@ -20,6 +20,7 @@
 		23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
 		23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDB271B024C00E2E651 /* EditItemView.swift */; };
 		23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDD271B062A00E2E651 /* ItemRowView.swift */; };
+		23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23C74DDB271B024C00E2E651 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		23C74DDD271B062A00E2E651 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
+		23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				23C74DDB271B024C00E2E651 /* EditItemView.swift */,
 				238AC83A271741E0006E1BDC /* Main.xcdatamodeld */,
 				238AC83D27174468006E1BDC /* DataController.swift */,
+				23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */,
 				23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */,
 				23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */,
 				238AC83027174130006E1BDC /* Assets.xcassets */,
@@ -186,6 +189,7 @@
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
+				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
