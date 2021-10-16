@@ -19,6 +19,7 @@
 		23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
 		23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
 		23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDB271B024C00E2E651 /* EditItemView.swift */; };
+		23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDD271B062A00E2E651 /* ItemRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23C74DDB271B024C00E2E651 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		23C74DDD271B062A00E2E651 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		238AC8202717412F006E1BDC = {
 			isa = PBXGroup;
 			children = (
+				23C74DDD271B062A00E2E651 /* ItemRowView.swift */,
 				238AC82B2717412F006E1BDC /* Bulo */,
 				238AC82A2717412F006E1BDC /* Products */,
 				2352800F2718B15200ACA356 /* Frameworks */,
@@ -178,6 +181,7 @@
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
 				23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
+				23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */,
 				23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */,
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
