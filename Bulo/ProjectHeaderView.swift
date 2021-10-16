@@ -12,7 +12,7 @@ struct ProjectHeaderView: View {
     
     var body: some View {
         HStack {
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
                     .imageScale(.large)
             }
