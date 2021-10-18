@@ -14,7 +14,7 @@ struct ProjectHeaderView: View {
         HStack {
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
-                    .imageScale(.large)
+                    .font(.title2)
             }
             
             Spacer()
