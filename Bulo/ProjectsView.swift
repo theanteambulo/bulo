@@ -49,6 +49,19 @@ struct ProjectsView: View {
                             
                             dataController.save()
                         }
+                        
+                        if showClosedProjects == false {
+                            Button {
+                                withAnimation {
+                                    let item = Item(context: managedObjectContext)
+                                    item.project = project
+                                    item.creationDate = Date()
+                                    dataController.save()
+                                }
+                            } label: {
+                                Label("Add an item", systemImage: "plus")
+                            }
+                        }
                     }
                 }
             }
