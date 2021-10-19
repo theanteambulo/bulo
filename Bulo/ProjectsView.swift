@@ -110,7 +110,14 @@ struct ProjectsView: View {
     }
     
     func items(for project: Project) -> [Item] {
-        []
+        switch sortOrder {
+        case .title:
+            return project.projectItems.sorted(by: \Item.itemTitle)
+        case .creationDate:
+            return project.projectItems.sorted(by: \Item.itemCreationDate)
+        case .optimized:
+            return project.projectItemsDefaultSorted
+        }
     }
 }
 
