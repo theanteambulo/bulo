@@ -12,6 +12,7 @@ struct ProjectsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var showingSortOrderActionSheet = false
+    @State private var sortOrder = Item.SortOrder.optimized
     
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
@@ -98,9 +99,9 @@ struct ProjectsView: View {
                 ActionSheet(title: Text("Sort Items"),
                             message: Text("How would you like to sort project items?"),
                             buttons: [
-                                .default(Text("Optimised")) { },
-                                .default(Text("Date Created")) { },
-                                .default(Text("Alphabetically")) { },
+                                .default(Text("Optimised")) { sortOrder = .optimized },
+                                .default(Text("Date Created")) { sortOrder = .creationDate},
+                                .default(Text("Alphabetically")) { sortOrder = .title},
                                 .cancel()
                             ]
                 )
