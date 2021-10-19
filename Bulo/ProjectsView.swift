@@ -115,6 +115,8 @@ struct ProjectsView: View {
                             ]
                 )
             }
+            
+            DefaultDetailView()
         }
     }
 }
