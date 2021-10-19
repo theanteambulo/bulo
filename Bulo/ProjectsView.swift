@@ -35,66 +35,74 @@ struct ProjectsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(projects.wrappedValue) { project in
-                    Section(header: ProjectHeaderView(project: project)) {
-                        ForEach(project.projectItems(using: sortOrder)) { item in
-                            ItemRowView(project: project,
-                                        item: item)
-                        }
-                        .onDelete { offsets in
-                            let allItems = project.projectItems
+            Group {
+                if projects.wrappedValue.count == 0 {
+                    Text("Nothing to see here...")
+                        .foregroundColor(.secondary)
+                        .italic()
+                } else {
+                    List {
+                        ForEach(projects.wrappedValue) { project in
+                            Section(header: ProjectHeaderView(project: project)) {
+                                ForEach(project.projectItems(using: sortOrder)) { item in
+                                    ItemRowView(project: project,
+                                                item: item)
+                                }
+                                .onDelete { offsets in
+                                    let allItems = project.projectItems
 
-                            for offset in offsets {
-                                let item = allItems[offset]
-                                dataController.delete(item)
-                            }
-                            
-                            dataController.save()
-                        }
-                        
-                        if showClosedProjects == false {
-                            Button {
-                                withAnimation {
-                                    let item = Item(context: managedObjectContext)
-                                    item.project = project
-                                    item.creationDate = Date()
+                                    for offset in offsets {
+                                        let item = allItems[offset]
+                                        dataController.delete(item)
+                                    }
+                                    
                                     dataController.save()
                                 }
+                                
+                                if showClosedProjects == false {
+                                    Button {
+                                        withAnimation {
+                                            let item = Item(context: managedObjectContext)
+                                            item.project = project
+                                            item.creationDate = Date()
+                                            dataController.save()
+                                        }
+                                    } label: {
+                                        Label("Add an item", systemImage: "plus")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            if showClosedProjects == false {
+                                Button {
+                                    withAnimation {
+                                        let project = Project(context: managedObjectContext)
+                                        project.closed = false
+                                        project.creationDate = Date()
+                                        dataController.save()
+                                    }
+                                } label: {
+                                    Label("Add Project", systemImage: "plus")
+                                        .font(.title2)
+                                }
+                            }
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                showingSortOrderActionSheet.toggle()
                             } label: {
-                                Label("Add an item", systemImage: "plus")
+                                Label("Sort", systemImage: "arrow.up.arrow.down")
+                                    .font(.title2)
                             }
                         }
                     }
+                    .listStyle(InsetGroupedListStyle())
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if showClosedProjects == false {
-                        Button {
-                            withAnimation {
-                                let project = Project(context: managedObjectContext)
-                                project.closed = false
-                                project.creationDate = Date()
-                                dataController.save()
-                            }
-                        } label: {
-                            Label("Add Project", systemImage: "plus")
-                                .font(.title2)
-                        }
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showingSortOrderActionSheet.toggle()
-                    } label: {
-                        Label("Sort", systemImage: "arrow.up.arrow.down")
-                            .font(.title2)
-                    }
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
             .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
             .actionSheet(isPresented: $showingSortOrderActionSheet) {
                 ActionSheet(title: Text("Sort Items"),
