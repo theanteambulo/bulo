@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemRowView: View {
+    @ObservedObject var project: Project
     @ObservedObject var item: Item
     
     var body: some View {
@@ -19,6 +20,7 @@ struct ItemRowView: View {
 
 struct ItemRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRowView(item: Item.example)
+        ItemRowView(project: Project.example,
+                    item: Item.example)
     }
 }
