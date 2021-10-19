@@ -10,7 +10,8 @@ import SwiftUI
 struct ProjectsView: View {
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+
+    @State private var showingSortOrderActionSheet = false
     
     let showClosedProjects: Bool
     let projects: FetchRequest<Project>
@@ -36,7 +37,7 @@ struct ProjectsView: View {
             List {
                 ForEach(projects.wrappedValue) { project in
                     Section(header: ProjectHeaderView(project: project)) {
-                        ForEach(project.projectItems) { item in
+                        ForEach(items(for: project)) { item in
                             ItemRowView(item: item)
                         }
                         .onDelete { offsets in
@@ -66,23 +67,49 @@ struct ProjectsView: View {
                 }
             }
             .toolbar {
-                if showClosedProjects == false {
-                    Button {
-                        withAnimation {
-                            let project = Project(context: managedObjectContext)
-                            project.closed = false
-                            project.creationDate = Date()
-                            dataController.save()
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if showClosedProjects == false {
+                        Button {
+                            withAnimation {
+                                let project = Project(context: managedObjectContext)
+                                project.closed = false
+                                project.creationDate = Date()
+                                dataController.save()
+                            }
+                        } label: {
+                            Label("Add Project", systemImage: "plus")
+                                .font(.title2)
                         }
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingSortOrderActionSheet.toggle()
                     } label: {
-                        Label("Add Project", systemImage: "plus")
+                        Label("Sort", systemImage: "arrow.up.arrow.down")
                             .font(.title2)
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
+            .actionSheet(isPresented: $showingSortOrderActionSheet) {
+                ActionSheet(title: Text("Sort Items"),
+                            message: Text("How would you like to sort project items?"),
+                            buttons: [
+                                .default(Text("Optimised")) { },
+                                .default(Text("Date Created")) { },
+                                .default(Text("Alphabetically")) { },
+                                .cancel()
+                            ]
+                )
+            }
         }
+    }
+    
+    func items(for project: Project) -> [Item] {
+        []
     }
 }
 
