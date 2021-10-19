@@ -49,7 +49,7 @@ struct ProjectsView: View {
                                                 item: item)
                                 }
                                 .onDelete { offsets in
-                                    let allItems = project.projectItems
+                                    let allItems = project.projectItems(using: sortOrder)
 
                                     for offset in offsets {
                                         let item = allItems[offset]
