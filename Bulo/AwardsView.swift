@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AwardsView: View {
+    @EnvironmentObject var dataController: DataController
+    
     static let tag: String? = "Awards"
     
     var columns: [GridItem] {
@@ -27,7 +29,9 @@ struct AwardsView: View {
                                 .scaledToFit()
                                 .padding()
                                 .frame(width: 90, height: 90)
-                                .foregroundColor(.secondary.opacity(0.5))
+                                .foregroundColor(dataController.hasEarned(award: award)
+                                                 ? Color(award.color)
+                                                 : .secondary.opacity(0.5))
                         }
                     }
                 }
