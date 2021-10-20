@@ -10,8 +10,30 @@ import SwiftUI
 struct AwardsView: View {
     static let tag: String? = "Awards"
     
+    var columns: [GridItem] {
+        [GridItem(.adaptive(minimum: 90, maximum: 90))]
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(Award.allAwards) { award in
+                        Button {
+                            // do something
+                        } label: {
+                            Image(systemName: award.image)
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                                .frame(width: 90, height: 90)
+                                .foregroundColor(.secondary.opacity(0.5))
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Awards")
+        }
     }
 }
 
