@@ -18,6 +18,7 @@
 		238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83A271741E0006E1BDC /* Main.xcdatamodeld */; };
 		238AC83E27174468006E1BDC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83D27174468006E1BDC /* DataController.swift */; };
 		23938BEC271F4A1B009920F1 /* DefaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */; };
+		23BC882D272000250091EF80 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 23BC882C272000250091EF80 /* Awards.json */; };
 		23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
 		23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
 		23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDB271B024C00E2E651 /* EditItemView.swift */; };
@@ -43,6 +44,7 @@
 		238AC83D27174468006E1BDC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		238AC83F27174F9F006E1BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailView.swift; sourceTree = "<group>"; };
+		23BC882C272000250091EF80 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = SOURCE_ROOT; };
 		23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23C74DDB271B024C00E2E651 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				23C74DDD271B062A00E2E651 /* ItemRowView.swift */,
 				23C74DE5271B0FBB00E2E651 /* EditProjectView.swift */,
 				23C74DDB271B024C00E2E651 /* EditItemView.swift */,
+				23BC882C272000250091EF80 /* Awards.json */,
 				238AC83A271741E0006E1BDC /* Main.xcdatamodeld */,
 				238AC83D27174468006E1BDC /* DataController.swift */,
 				23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */,
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23C74DE4271B0EA200E2E651 /* Colors.xcassets in Resources */,
+				23BC882D272000250091EF80 /* Awards.json in Resources */,
 				238AC83427174130006E1BDC /* Preview Assets.xcassets in Resources */,
 				238AC83127174130006E1BDC /* Assets.xcassets in Resources */,
 			);
