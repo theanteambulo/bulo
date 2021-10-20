@@ -21,6 +21,7 @@
 		23BC882D272000250091EF80 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 23BC882C272000250091EF80 /* Awards.json */; };
 		23BC882F272000C70091EF80 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BC882E272000C70091EF80 /* Bundle-Decodable.swift */; };
 		23BC8831272006960091EF80 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BC8830272006960091EF80 /* Award.swift */; };
+		23BC8833272007AC0091EF80 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BC8832272007AC0091EF80 /* AwardsView.swift */; };
 		23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
 		23BE194627195E5000040587 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
 		23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDB271B024C00E2E651 /* EditItemView.swift */; };
@@ -49,6 +50,7 @@
 		23BC882C272000250091EF80 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = SOURCE_ROOT; };
 		23BC882E272000C70091EF80 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		23BC8830272006960091EF80 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		23BC8832272007AC0091EF80 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtensions.swift"; sourceTree = "<group>"; };
 		23C74DDB271B024C00E2E651 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				235280142718B3E700ACA356 /* ProjectsView.swift */,
 				23BC882E272000C70091EF80 /* Bundle-Decodable.swift */,
 				23BC8830272006960091EF80 /* Award.swift */,
+				23BC8832272007AC0091EF80 /* AwardsView.swift */,
 				23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */,
 				232F406B271EAF66006505E4 /* Sequence-Extensions.swift */,
 				23C74DE1271B0BD800E2E651 /* ProjectHeaderView.swift */,
@@ -208,6 +211,7 @@
 			files = (
 				23938BEC271F4A1B009920F1 /* DefaultDetailView.swift in Sources */,
 				232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */,
+				23BC8833272007AC0091EF80 /* AwardsView.swift in Sources */,
 				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
 				23C74DE2271B0BD800E2E651 /* ProjectHeaderView.swift in Sources */,
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
