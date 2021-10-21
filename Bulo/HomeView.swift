@@ -14,16 +14,19 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                Button("Add Data") {
-                    dataController.deleteAll()
-                    try? dataController.createSampleData()
-                }
+            ScrollView {
+                
             }
+            .background(Color.systemGroupedBackground)
             .navigationTitle("Home")
         }
     }
 }
+
+//Button("Add Data") {
+//    dataController.deleteAll()
+//    try? dataController.createSampleData()
+//}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
