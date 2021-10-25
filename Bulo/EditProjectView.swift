@@ -64,12 +64,12 @@ struct EditProjectView: View {
             }
             
             Section(footer: Text("Closing a project moves it from the Open to Closed tab. Deleting a project removes it completely and is irreversible.")) {
-                Button(project.closed ? "Reopen this project" : "Close this project") {
+                Button(project.closed ? "Reopen Project" : "Close Project") {
                     project.closed.toggle()
                     update()
                 }
                 
-                Button("Delete this project") {
+                Button("Delete Project") {
                     displayDeleteConfirmationAlert.toggle()
                 }
                 .accentColor(.red)

@@ -80,6 +80,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                 }
+                .padding(.bottom)
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
