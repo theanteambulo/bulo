@@ -77,12 +77,6 @@ struct HomeView: View {
                         
                         list("More to explore",
                              for: items.wrappedValue.dropFirst(3))
-                        
-                        Button("Add Data") {
-                            dataController.deleteAll()
-                            try? dataController.createSampleData()
-                        }
-                        .padding(.vertical)
                     }
                     .padding(.horizontal)
                 }
