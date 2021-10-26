@@ -32,9 +32,11 @@ struct EditProjectView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic Settings")) {
-                TextField("Project name",
+                TextField(NSLocalizedString("Project name",
+                                            comment: "Placeholder project name"),
                           text: $title.onChange(update))
-                TextField("Description",
+                TextField(NSLocalizedString("Description",
+                                            comment: "Placeholder project description"),
                           text: $detail.onChange(update))
             }
             

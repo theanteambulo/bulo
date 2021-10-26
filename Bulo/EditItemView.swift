@@ -29,9 +29,11 @@ struct EditItemView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic Settings")) {
-                TextField("Item name",
+                TextField(NSLocalizedString("Item name",
+                                            comment: "Placeholder item name"),
                           text: $title.onChange(update))
-                TextField("Description",
+                TextField(NSLocalizedString("Description",
+                                            comment: "Placeholder item description"),
                           text: $detail.onChange(update))
             }
             

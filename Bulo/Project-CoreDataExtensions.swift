@@ -24,11 +24,12 @@ extension Project {
     ]
     
     var projectTitle: String {
-        title ?? NSLocalizedString("New Project", comment: "Create a new project")
+        title ?? NSLocalizedString("New Project",
+                                   comment: "Create a new project")
     }
     
     var projectDetail: String {
-        detail ?? "This is a new example project."
+        detail ?? ""
     }
     
     var projectColor: String {
