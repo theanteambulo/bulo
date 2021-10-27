@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
+		2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D79B27294270003472BA /* ProjectSummaryView.swift */; };
 		232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
 		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
 		235280132718B2E700ACA356 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280122718B2E700ACA356 /* HomeView.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		2301D79B27294270003472BA /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		232F406B271EAF66006505E4 /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
 		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
 		235280102718B15200ACA356 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -117,6 +119,7 @@
 				238AC82C2717412F006E1BDC /* BuloApp.swift */,
 				238AC82E2717412F006E1BDC /* ContentView.swift */,
 				235280122718B2E700ACA356 /* HomeView.swift */,
+				2301D79B27294270003472BA /* ProjectSummaryView.swift */,
 				2301D799272940EF003472BA /* ItemListView.swift */,
 				23B784572727D636007ABA29 /* Localizable.strings */,
 				23B7845B2727DBCD007ABA29 /* Localizable.stringsdict */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23938BEC271F4A1B009920F1 /* DefaultDetailView.swift in Sources */,
+				2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */,
 				232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */,
 				23BC8833272007AC0091EF80 /* AwardsView.swift in Sources */,
 				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
