@@ -33,6 +33,57 @@ struct ProjectsView: View {
         )
     }
     
+    var projectsList: some View {
+        List {
+            ForEach(projects.wrappedValue) { project in
+                Section(header: ProjectHeaderView(project: project)) {
+                    ForEach(project.projectItems(using: sortOrder)) { item in
+                        ItemRowView(project: project,
+                                    item: item)
+                    }
+                    .onDelete { offsets in
+                        delete(offsets, from: project)
+                    }
+                    
+                    if showClosedProjects == false {
+                        Button {
+                            addItem(to: project)
+                        } label: {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+                }
+            }
+        }
+        .listStyle(InsetGroupedListStyle())
+    }
+    
+    var sortOrderToolbarItem: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                showingSortOrderActionSheet.toggle()
+            } label: {
+                Label("Sort", systemImage: "arrow.up.arrow.down")
+                    .font(.title2)
+            }
+        }
+    }
+    
+    var addProjectToolbarItem: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            if showClosedProjects == false {
+                Button(action: addProject) {
+                    if UIAccessibility.isVoiceOverRunning {
+                        Text("Add Project")
+                    } else {
+                        Label("Add Project", systemImage: "plus")
+                            .font(.title2)
+                    }
+                }
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             Group {
@@ -41,73 +92,14 @@ struct ProjectsView: View {
                         .foregroundColor(.secondary)
                         .italic()
                 } else {
-                    List {
-                        ForEach(projects.wrappedValue) { project in
-                            Section(header: ProjectHeaderView(project: project)) {
-                                ForEach(project.projectItems(using: sortOrder)) { item in
-                                    ItemRowView(project: project,
-                                                item: item)
-                                }
-                                .onDelete { offsets in
-                                    let allItems = project.projectItems(using: sortOrder)
-
-                                    for offset in offsets {
-                                        let item = allItems[offset]
-                                        dataController.delete(item)
-                                    }
-                                    
-                                    dataController.save()
-                                }
-                                
-                                if showClosedProjects == false {
-                                    Button {
-                                        withAnimation {
-                                            let item = Item(context: managedObjectContext)
-                                            item.project = project
-                                            item.creationDate = Date()
-                                            dataController.save()
-                                        }
-                                    } label: {
-                                        Label("Add Item", systemImage: "plus")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            if showClosedProjects == false {
-                                Button {
-                                    withAnimation {
-                                        let project = Project(context: managedObjectContext)
-                                        project.closed = false
-                                        project.creationDate = Date()
-                                        dataController.save()
-                                    }
-                                } label: {
-                                    if UIAccessibility.isVoiceOverRunning {
-                                        Text("Add Project")
-                                    } else {
-                                        Label("Add Project", systemImage: "plus")
-                                            .font(.title2)
-                                    }
-                                }
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                showingSortOrderActionSheet.toggle()
-                            } label: {
-                                Label("Sort", systemImage: "arrow.up.arrow.down")
-                                    .font(.title2)
-                            }
-                        }
-                    }
-                    .listStyle(InsetGroupedListStyle())
+                    projectsList
                 }
             }
             .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
+            .toolbar {
+                sortOrderToolbarItem
+                addProjectToolbarItem
+            }
             .actionSheet(isPresented: $showingSortOrderActionSheet) {
                 ActionSheet(title: Text("Sort Items"),
                             message: Text("How would you like to sort project items?"),
@@ -122,6 +114,36 @@ struct ProjectsView: View {
             
             DefaultDetailView()
         }
+    }
+    
+    func addProject() {
+        withAnimation {
+            let project = Project(context: managedObjectContext)
+            project.closed = false
+            project.creationDate = Date()
+            dataController.save()
+        }
+    }
+    
+    func addItem(to project: Project) {
+        withAnimation {
+            let item = Item(context: managedObjectContext)
+            item.project = project
+            item.creationDate = Date()
+            dataController.save()
+        }
+    }
+    
+    func delete(_ offsets: IndexSet,
+                from project: Project) {
+        let allItems = project.projectItems(using: sortOrder)
+
+        for offset in offsets {
+            let item = allItems[offset]
+            dataController.delete(item)
+        }
+        
+        dataController.save()
     }
 }
 
