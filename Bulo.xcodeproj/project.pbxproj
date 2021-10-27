@@ -10,6 +10,7 @@
 		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
 		2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D79B27294270003472BA /* ProjectSummaryView.swift */; };
 		232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
+		233900722729A9F10082C7FD /* ItemListViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233900712729A9F10082C7FD /* ItemListViewBody.swift */; };
 		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
 		235280132718B2E700ACA356 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280122718B2E700ACA356 /* HomeView.swift */; };
 		235280152718B3E700ACA356 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280142718B3E700ACA356 /* ProjectsView.swift */; };
@@ -41,6 +42,7 @@
 		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		2301D79B27294270003472BA /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		232F406B271EAF66006505E4 /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
+		233900712729A9F10082C7FD /* ItemListViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewBody.swift; sourceTree = "<group>"; };
 		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
 		235280102718B15200ACA356 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		235280122718B2E700ACA356 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				235280122718B2E700ACA356 /* HomeView.swift */,
 				2301D79B27294270003472BA /* ProjectSummaryView.swift */,
 				2301D799272940EF003472BA /* ItemListView.swift */,
+				233900712729A9F10082C7FD /* ItemListViewBody.swift */,
 				23B784572727D636007ABA29 /* Localizable.strings */,
 				23B7845B2727DBCD007ABA29 /* Localizable.stringsdict */,
 				235280142718B3E700ACA356 /* ProjectsView.swift */,
@@ -239,6 +242,7 @@
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
 				23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */,
 				23C74DE6271B0FBB00E2E651 /* EditProjectView.swift in Sources */,
+				233900722729A9F10082C7FD /* ItemListViewBody.swift in Sources */,
 				23BC8831272006960091EF80 /* Award.swift in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
 				23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */,
