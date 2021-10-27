@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
 		232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
 		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
 		235280132718B2E700ACA356 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280122718B2E700ACA356 /* HomeView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		232F406B271EAF66006505E4 /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
 		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
 		235280102718B15200ACA356 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				238AC82C2717412F006E1BDC /* BuloApp.swift */,
 				238AC82E2717412F006E1BDC /* ContentView.swift */,
 				235280122718B2E700ACA356 /* HomeView.swift */,
+				2301D799272940EF003472BA /* ItemListView.swift */,
 				23B784572727D636007ABA29 /* Localizable.strings */,
 				23B7845B2727DBCD007ABA29 /* Localizable.stringsdict */,
 				235280142718B3E700ACA356 /* ProjectsView.swift */,
@@ -239,6 +242,7 @@
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
 				23BC882F272000C70091EF80 /* Bundle-Decodable.swift in Sources */,
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
+				2301D79A272940EF003472BA /* ItemListView.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
