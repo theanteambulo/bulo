@@ -85,8 +85,12 @@ struct ProjectsView: View {
                                         dataController.save()
                                     }
                                 } label: {
-                                    Label("Add Project", systemImage: "plus")
-                                        .font(.title2)
+                                    if UIAccessibility.isVoiceOverRunning {
+                                        Text("Add Project")
+                                    } else {
+                                        Label("Add Project", systemImage: "plus")
+                                            .font(.title2)
+                                    }
                                 }
                             }
                         }
