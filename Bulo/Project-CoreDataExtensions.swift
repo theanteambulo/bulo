@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Project {
     static let colors = [
@@ -60,6 +61,10 @@ extension Project {
             
             return first.itemCreationDate <= second.itemCreationDate
         }
+    }
+    
+    var label: LocalizedStringKey {
+        LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete")
     }
     
     var completionAmount: Double {
