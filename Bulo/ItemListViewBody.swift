@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemListViewBody: View {
     let item: Item
-    
+
     var body: some View {
         HStack(spacing: 20) {
             Circle()
@@ -17,14 +17,14 @@ struct ItemListViewBody: View {
                         lineWidth: 3)
                 .frame(width: 44,
                        height: 44)
-            
+
             VStack(alignment: .leading) {
                 Text(item.itemTitle)
                     .font(.title3)
                     .foregroundColor(.primary)
                     .frame(maxWidth: .infinity,
                            alignment: .leading)
-                
+
                 if item.itemDetail.isEmpty == false {
                     Text(item.itemDetail)
                         .foregroundColor(.secondary)

@@ -9,19 +9,19 @@ import SwiftUI
 
 struct ProjectHeaderView: View {
     @ObservedObject var project: Project
-    
+
     var body: some View {
         HStack {
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
                     .font(.title2)
             }
-            
+
             Spacer()
-            
+
             VStack(alignment: .leading) {
                 Text(project.projectTitle)
-                
+
                 ProgressView(value: project.completionAmount)
                     .accentColor(Color(project.projectColor))
             }

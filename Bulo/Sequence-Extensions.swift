@@ -14,7 +14,7 @@ extension Sequence {
             try areInIncreasingOrder($0[keyPath: keyPath], $1[keyPath: keyPath])
         }
     }
-    
+
     func sorted<Value: Comparable>(by keyPath: KeyPath<Element, Value>) -> [Element] {
         self.sorted(by: keyPath, using: <)
     }
