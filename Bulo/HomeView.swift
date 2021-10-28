@@ -65,6 +65,12 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
+            .toolbar {
+                Button("Add data") {
+                    dataController.deleteAll()
+                    try? dataController.createSampleData()
+                }
+            }
         }
     }
 }
