@@ -28,18 +28,13 @@ enum Strings: LocalizedStringKey {
     case upNextSectionHeader
     case moreToExploreSectionHeader
     case landscapePlaceholder
-//    case projectSummaryVoiceOverLabel
     
     // PROJECTS VIEW
     case openProjects
     case closedProjects
-//    case newProject // needs to be a String
-//    case newItem // needs to be a String
     case noProjectsPlaceholder
     case addProject
     case addItem
-//    case completedVoiceOverLabel // not sure how to do string interpolation yet
-//    case priorityVoiceOverLabel // not sure how to do string interpolation yet
     
     // PROJECT ITEM SORTING
     case sortItemsTitle
@@ -73,7 +68,6 @@ enum Strings: LocalizedStringKey {
     
     // AWARDS VIEW
     case lockedAlertTitle
-//    case unlockedAlertTitle // how to do with string interpolation?
     
     var localized: LocalizedStringKey {
         self.rawValue

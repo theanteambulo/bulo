@@ -73,7 +73,7 @@ struct ProjectsView: View {
             if showClosedProjects == false {
                 Button(action: addProject) {
                     if UIAccessibility.isVoiceOverRunning {
-                        Text(Strings.addProject.localized)
+                        Text(.addProject)
                     } else {
                         Label(Strings.addProject.localized, systemImage: "plus")
                     }
@@ -94,8 +94,8 @@ struct ProjectsView: View {
                 }
             }
             .navigationTitle(showClosedProjects
-                             ? Strings.closedProjects.localized
-                             : Strings.openProjects.localized)
+                             ? Text(.closedProjects)
+                             : Text(.openProjects))
             .toolbar {
                 sortOrderToolbarItem
                 addProjectToolbarItem

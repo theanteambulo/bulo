@@ -53,7 +53,7 @@ struct EditItemView: View {
                        isOn: $completed.onChange(update))
             }
         }
-        .navigationTitle(Strings.editItem.localized)
+        .navigationTitle(Text(.editItem))
         .onDisappear(perform: dataController.save)
     }
 

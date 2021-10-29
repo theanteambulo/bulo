@@ -61,7 +61,7 @@ struct EditProjectView: View {
                 .accentColor(.red)
             }
         }
-        .navigationTitle(Strings.editProject.localized)
+        .navigationTitle(Text(.editProject))
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $displayDeleteConfirmationAlert) {
             Alert(title: Text(.deleteProjectAlertTitle),

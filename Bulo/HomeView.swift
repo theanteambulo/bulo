@@ -59,18 +59,22 @@ struct HomeView: View {
                     }
 
                     VStack(alignment: .leading) {
-                        ItemListView(title: Strings.upNextSectionHeader.localized,
-                                     items: items.wrappedValue.prefix(3))
+                        ItemListView(
+                            title: Strings.upNextSectionHeader.localized,
+                            items: items.wrappedValue.prefix(3)
+                        )
 
-                        ItemListView(title: Strings.moreToExploreSectionHeader.localized,
-                                     items: items.wrappedValue.dropFirst(3))
+                        ItemListView(
+                            title: Strings.moreToExploreSectionHeader.localized,
+                            items: items.wrappedValue.dropFirst(3)
+                        )
                     }
                     .padding(.horizontal)
                 }
                 .padding(.bottom)
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
-            .navigationTitle(Strings.homeTab.localized)
+            .navigationTitle(Text(.homeTab))
             .toolbar {
                 Button("Add data") {
                     dataController.deleteAll()
