@@ -81,9 +81,9 @@ struct HomeView: View {
                     try? dataController.createSampleData()
                 }
             }
-            
+
             DefaultDetailView()
-            
+
         }
     }
 }
