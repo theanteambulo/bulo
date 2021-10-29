@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DefaultDetailView: View {
     var body: some View {
-        Text("Please select something from the menu to begin.")
+        Text(.landscapePlaceholder)
             .italic()
             .foregroundColor(.secondary)
     }

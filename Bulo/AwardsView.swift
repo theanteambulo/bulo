@@ -40,7 +40,7 @@ struct AwardsView: View {
                     }
                 }
             }
-            .navigationTitle("Awards")
+            .navigationTitle(Strings.awardsTab.localized)
         }
         .alert(isPresented: $showingAwardDetails, content: getAwardAlert)
     }
@@ -55,7 +55,7 @@ struct AwardsView: View {
         Text(
             dataController.hasEarned(award: award)
             ? "Unlocked: \(award.name)"
-            : "Locked"
+            : Strings.lockedAlertTitle.localized
         )
     }
 
@@ -64,13 +64,13 @@ struct AwardsView: View {
             return Alert(
                 title: Text("Unlocked: \(selectedAward.name)"),
                 message: Text(selectedAward.description),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(Strings.okCallToAction.localized))
             )
         } else {
             return Alert(
-                title: Text("Locked"),
+                title: Text(Strings.lockedAlertTitle.localized),
                 message: Text(selectedAward.description),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(Strings.okCallToAction.localized))
             )
         }
     }

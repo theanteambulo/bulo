@@ -16,28 +16,28 @@ struct ContentView: View {
                 .tag(HomeView.tag)
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Home")
+                    Text(.homeTab)
                 }
 
             ProjectsView(showClosedProjects: false)
                 .tag(ProjectsView.openTag)
                 .tabItem {
                     Image(systemName: "list.dash")
-                    Text("Open")
+                    Text(.openTab)
                 }
 
             ProjectsView(showClosedProjects: true)
                 .tag(ProjectsView.closedTag)
                 .tabItem {
                     Image(systemName: "checkmark")
-                    Text("Closed")
+                    Text(.closedTab)
                 }
 
             AwardsView()
                 .tag(AwardsView.tag)
                 .tabItem {
                     Image(systemName: "rosette")
-                    Text("Awards")
+                    Text(.awardsTab)
                 }
         }
     }

@@ -36,6 +36,7 @@
 		23C74DE2271B0BD800E2E651 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DE1271B0BD800E2E651 /* ProjectHeaderView.swift */; };
 		23C74DE4271B0EA200E2E651 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C74DE3271B0EA200E2E651 /* Colors.xcassets */; };
 		23C74DE6271B0FBB00E2E651 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DE5271B0FBB00E2E651 /* EditProjectView.swift */; };
+		23CE85D8272BC7B00092D8A2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE85D7272BC7B00092D8A2 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		23C74DE1271B0BD800E2E651 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		23C74DE3271B0EA200E2E651 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		23C74DE5271B0FBB00E2E651 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		23CE85D7272BC7B00092D8A2 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				23B7845F2727DCF9007ABA29 /* Awards.json */,
 				238AC83A271741E0006E1BDC /* Main.xcdatamodeld */,
 				238AC83D27174468006E1BDC /* DataController.swift */,
+				23CE85D7272BC7B00092D8A2 /* Strings.swift */,
 				23B7680A2721476800B1A747 /* Color-Extensions.swift */,
 				23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */,
 				23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */,
@@ -255,6 +258,7 @@
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
 				23B7680B2721476800B1A747 /* Color-Extensions.swift in Sources */,
+				23CE85D8272BC7B00092D8A2 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

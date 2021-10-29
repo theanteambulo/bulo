@@ -59,10 +59,10 @@ struct HomeView: View {
                     }
 
                     VStack(alignment: .leading) {
-                        ItemListView(title: "Up next",
+                        ItemListView(title: Strings.upNextSectionHeader.localized,
                                      items: items.wrappedValue.prefix(3))
 
-                        ItemListView(title: "More to explore",
+                        ItemListView(title: Strings.moreToExploreSectionHeader.localized,
                                      items: items.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
@@ -70,13 +70,16 @@ struct HomeView: View {
                 .padding(.bottom)
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
-            .navigationTitle("Home")
+            .navigationTitle(Strings.homeTab.localized)
             .toolbar {
                 Button("Add data") {
                     dataController.deleteAll()
                     try? dataController.createSampleData()
                 }
             }
+            
+            DefaultDetailView()
+            
         }
     }
 }

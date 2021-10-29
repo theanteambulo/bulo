@@ -28,34 +28,32 @@ struct EditItemView: View {
 
     var body: some View {
         Form {
-            Section(header: Text("Basic Settings")) {
-                TextField(NSLocalizedString("Item name",
-                                            comment: "Placeholder item name"),
+            Section(header: Text(.basicSettingsSectionHeader)) {
+                TextField(Strings.itemName.localized,
                           text: $title.onChange(update))
-                TextField(NSLocalizedString("Description",
-                                            comment: "Placeholder item description"),
+                TextField(Strings.itemDescription.localized,
                           text: $detail.onChange(update))
             }
 
-            Section(header: Text("Priority")) {
-                Picker("Priority",
+            Section(header: Text(Strings.itemPriority.localized)) {
+                Picker(Strings.itemPriority.localized,
                        selection: $priority.onChange(update)) {
-                    Text("Low")
+                    Text(.itemPriorityLow)
                         .tag(1)
-                    Text("Medium")
+                    Text(.itemPriorityMedium)
                         .tag(2)
-                    Text("High")
+                    Text(.itemPriorityHigh)
                         .tag(3)
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
 
             Section {
-                Toggle("Mark Completed",
+                Toggle(Strings.markCompletedToggleLabel.localized,
                        isOn: $completed.onChange(update))
             }
         }
-        .navigationTitle("Edit Item")
+        .navigationTitle(Strings.editItem.localized)
         .onDisappear(perform: dataController.save)
     }
 

@@ -31,16 +31,14 @@ struct EditProjectView: View {
 
     var body: some View {
         Form {
-            Section(header: Text("Basic Settings")) {
-                TextField(NSLocalizedString("Project name",
-                                            comment: "Placeholder project name"),
+            Section(header: Text(.basicSettingsSectionHeader)) {
+                TextField(Strings.projectName.localized,
                           text: $title.onChange(update))
-                TextField(NSLocalizedString("Description",
-                                            comment: "Placeholder project description"),
+                TextField(Strings.projectDescription.localized,
                           text: $detail.onChange(update))
             }
 
-            Section(header: Text("Select Project Colour")) {
+            Section(header: Text(.projectColorSectionHeader)) {
                 LazyVGrid(columns: colorColumns) {
                     ForEach(Project.colors,
                             id: \.self,
@@ -49,24 +47,26 @@ struct EditProjectView: View {
                 .padding(.vertical)
             }
 
-            Section(footer: Text("Closing a project moves it from the Open to Closed tab. Deleting a project removes it completely and is irreversible.")) {
-                Button(project.closed ? "Reopen Project" : "Close Project") {
+            Section(footer: Text(.warningFooter)) {
+                Button(project.closed
+                       ? Strings.reopenProject.localized
+                       : Strings.closeProject.localized) {
                     project.closed.toggle()
                     update()
                 }
 
-                Button("Delete Project") {
+                Button(Strings.deleteProject.localized) {
                     displayDeleteConfirmationAlert.toggle()
                 }
                 .accentColor(.red)
             }
         }
-        .navigationTitle("Edit Project")
+        .navigationTitle(Strings.editProject.localized)
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $displayDeleteConfirmationAlert) {
-            Alert(title: Text("Delete project?"),
-                  message: Text("Are you sure you want to delete this project? All the items it contains will also be deleted. This action cannot be undone."),
-                  primaryButton: .destructive(Text("Delete"),
+            Alert(title: Text(.deleteProjectAlertTitle),
+                  message: Text(.deleteProjectAlertMessage),
+                  primaryButton: .destructive(Text(.deleteCallToAction),
                                               action: delete),
                   secondaryButton: .cancel())
         }

@@ -49,7 +49,7 @@ struct ProjectsView: View {
                         Button {
                             addItem(to: project)
                         } label: {
-                            Label("Add Item", systemImage: "plus")
+                            Label(Strings.addItem.localized, systemImage: "plus")
                         }
                     }
                 }
@@ -64,7 +64,6 @@ struct ProjectsView: View {
                 showingSortOrderActionSheet.toggle()
             } label: {
                 Label("Sort", systemImage: "arrow.up.arrow.down")
-                    .font(.title2)
             }
         }
     }
@@ -74,10 +73,9 @@ struct ProjectsView: View {
             if showClosedProjects == false {
                 Button(action: addProject) {
                     if UIAccessibility.isVoiceOverRunning {
-                        Text("Add Project")
+                        Text(Strings.addProject.localized)
                     } else {
-                        Label("Add Project", systemImage: "plus")
-                            .font(.title2)
+                        Label(Strings.addProject.localized, systemImage: "plus")
                     }
                 }
             }
@@ -88,25 +86,27 @@ struct ProjectsView: View {
         NavigationView {
             Group {
                 if projects.wrappedValue.count == 0 {
-                    Text("Nothing to see here...")
+                    Text(.noProjectsPlaceholder)
                         .foregroundColor(.secondary)
                         .italic()
                 } else {
                     projectsList
                 }
             }
-            .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
+            .navigationTitle(showClosedProjects
+                             ? Strings.closedProjects.localized
+                             : Strings.openProjects.localized)
             .toolbar {
                 sortOrderToolbarItem
                 addProjectToolbarItem
             }
             .actionSheet(isPresented: $showingSortOrderActionSheet) {
-                ActionSheet(title: Text("Sort Items"),
-                            message: Text("How would you like to sort project items?"),
+                ActionSheet(title: Text(.sortItemsTitle),
+                            message: Text(.sortItemsMessage),
                             buttons: [
-                                .default(Text("Optimised")) { sortOrder = .optimized },
-                                .default(Text("Date Created")) { sortOrder = .creationDate},
-                                .default(Text("Alphabetically")) { sortOrder = .title},
+                                .default(Text(.sortOrderOptimised)) { sortOrder = .optimized },
+                                .default(Text(.sortOrderDateCreated)) { sortOrder = .creationDate},
+                                .default(Text(.sortOrderAlphabetical)) { sortOrder = .title},
                                 .cancel()
                             ]
                 )
