@@ -22,7 +22,7 @@ struct ItemListView: View {
 
             ForEach(items) { item in
                 NavigationLink(destination: EditItemView(item: item)) {
-                    ItemListViewBody(item: item)
+                    ItemListBodyView(item: item)
                 }
             }
         }

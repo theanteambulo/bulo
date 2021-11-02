@@ -1,5 +1,5 @@
 //
-//  ItemListViewBody.swift
+//  ItemListBodyView.swift
 //  Bulo
 //
 //  Created by Jake King on 27/10/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemListViewBody: View {
+struct ItemListBodyView: View {
     let item: Item
 
     var body: some View {
@@ -39,8 +39,8 @@ struct ItemListViewBody: View {
     }
 }
 
-struct ItemListViewBody_Previews: PreviewProvider {
+struct ItemListBodyView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemListViewBody(item: Item.example)
+        ItemListBodyView(item: Item.example)
     }
 }

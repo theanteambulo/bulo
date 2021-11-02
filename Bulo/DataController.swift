@@ -27,8 +27,8 @@ class DataController: ObservableObject {
         return dataController
     }()
 
-    /// Initializes a data controller, either in memory (for temporary use such as testing and previewing), or on permanent storage (for
-    /// use in regular app runs).
+    /// Initializes a data controller, either in memory (for temporary use such as testing and previewing), or on
+    /// permanent storage (for use in regular app runs).
     ///
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
@@ -74,7 +74,6 @@ class DataController: ObservableObject {
         try viewContext.save()
     }
 
-    
     /// Saves our Core Data context iff there are changes. This silently ignores any errors caused by saving, but this
     /// should be fine because all our attributes are optional.
     func save() {
