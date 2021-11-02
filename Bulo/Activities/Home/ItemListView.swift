@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// A view containing a given header text followed by a given list of items.
 struct ItemListView: View {
+    /// The header text for the view.
     let title: LocalizedStringKey
+    /// The list of items to display.
     let items: FetchedResults<Item>.SubSequence
 
     var body: some View {

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// A view containing details of a given project.
 struct ProjectSummaryView: View {
+    /// The project used to construct this view.
     @ObservedObject var project: Project
 
     var body: some View {

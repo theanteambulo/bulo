@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+/// A view containing a decorative circle coloured the same a given item's parent project, followed by that item's title
+/// and detail text if applicable.
 struct ItemListBodyView: View {
+    /// The item used to construct this view.
     let item: Item
 
     var body: some View {
