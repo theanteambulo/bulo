@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ItemRowView: View {
+    /// The project used to construct this view.
     @ObservedObject var project: Project
+    /// The item used to construct this view.
     @ObservedObject var item: Item
 
+    /// A containing a coloured icon based on a hierarchy of features of an item.
     var icon: some View {
         if item.completed {
             return Image(systemName: "checkmark.circle.fill")
@@ -24,6 +27,7 @@ struct ItemRowView: View {
         }
     }
 
+    /// A view to create a "more human" accessibility label for VoiceOver to read.
     var label: Text {
         if item.completed {
             return Text("\(item.itemTitle), completed")

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct EditProjectView: View {
+    /// The project used to construct this view.
     let project: Project
+    /// An adaptive grid with a minimum height and width of 44 points.
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
@@ -16,11 +18,17 @@ struct EditProjectView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var dataController: DataController
 
+    /// The title given to the project by the user.
     @State private var title: String
+    /// The description given to the project by the user.
     @State private var detail: String
+    /// The colour given to the project by the user.
     @State private var color: String
+    /// A Boolean to indicate whether or not the delete confirmation Alert is being displayed or not.
     @State private var displayDeleteConfirmationAlert = false
 
+    // When we have multiple @StateObject properties that rely on each other, they must get created
+    // in their own customer initialiser.
     init(project: Project) {
         self.project = project
 
@@ -72,41 +80,47 @@ struct EditProjectView: View {
         }
     }
 
+    /// Synchronize the @State properties of EditProjectView with their Core Data equivalents in whichever Project
+    /// object is being edited.
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
     }
 
+    /// Delete the Project object currently being edited from the Core Data context.
     func delete() {
         dataController.delete(project)
         presentationMode.wrappedValue.dismiss()
     }
 
-    func colourButton(for item: String) -> some View {
+    /// Produces a coloured button for a given project color.
+    /// - Parameter color: A project color.
+    /// - Returns: A circular, tappable ZStack containing a conditional icon when that color is selected.
+    func colourButton(for buttonColor: String) -> some View {
         ZStack {
             Circle()
-                .foregroundColor(Color(item))
+                .foregroundColor(Color(buttonColor))
                 .aspectRatio(1,
                              contentMode: .fit)
 
-            if item == color {
+            if buttonColor == color {
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.white)
                     .font(.largeTitle)
             }
         }
         .onTapGesture {
-            color = item
+            color = buttonColor
             update()
         }
         .accessibilityElement(children: .ignore)
         .accessibilityAddTraits(
-            item == color
+            buttonColor == color
                 ? [.isButton, .isSelected]
                 : .isButton
         )
-        .accessibilityLabel(LocalizedStringKey(item))
+        .accessibilityLabel(LocalizedStringKey(buttonColor))
     }
 }
 

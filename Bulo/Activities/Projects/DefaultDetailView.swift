@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Placeholder view for when the user has their device in landscape mode.
 struct DefaultDetailView: View {
     var body: some View {
         Text(.landscapePlaceholder)

@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct EditItemView: View {
+    /// The item used to construct this view.
     let item: Item
 
     @EnvironmentObject var dataController: DataController
 
+    /// The title given to the item by the user.
     @State private var title: String
+    /// The description given to the item by the user.
     @State private var detail: String
+    /// The priority level given to the item by the user.
     @State private var priority: Int
+    /// The completion status given to the item by the user.
     @State private var completed: Bool
 
+    // When we have multiple @StateObject properties that rely on each other, they must get created
+    // in their own customer initialiser.
     init(item: Item) {
         self.item = item
 
@@ -57,6 +64,8 @@ struct EditItemView: View {
         .onDisappear(perform: dataController.save)
     }
 
+    /// Synchronize the @State properties of EditItemView with their Core Data equivalents in whichever Item
+    /// object is being edited and announce the change to property wrappers observing it.
     func update() {
         item.project?.objectWillChange.send()
 

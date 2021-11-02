@@ -134,7 +134,7 @@ struct ProjectsView: View {
             DefaultDetailView()
         }
     }
-    
+
     /// Saves a new project to the Core Data context.
     func addProject() {
         withAnimation {
@@ -144,7 +144,7 @@ struct ProjectsView: View {
             dataController.save()
         }
     }
-    
+
     /// Saves a new item associated with a given parent project to the Core Data context.
     /// - Parameter project: The parent project for the newly added item.
     func addItem(to project: Project) {
@@ -155,7 +155,7 @@ struct ProjectsView: View {
             dataController.save()
         }
     }
-    
+
     /// Deletes an item from a given parent project from the Core Data context.
     /// - Parameters:
     ///   - offsets: A set of indices relative to the list of items.

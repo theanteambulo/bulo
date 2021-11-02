@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectHeaderView: View {
+    /// The project used to construct this view
     @ObservedObject var project: Project
 
     var body: some View {
