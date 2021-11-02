@@ -33,7 +33,8 @@ struct EditItemView: View {
         _completed = State(wrappedValue: item.completed)
     }
 
-    // The extension on Binding is used extensively throughout this view to avoid the excessive and repetitive use of the Swift .onChange modifier.
+    // The extension on Binding is used extensively throughout this view to avoid the excessive and
+    // repetitive use of the Swift .onChange modifier.
     var body: some View {
         Form {
             Section(header: Text(.basicSettingsSectionHeader)) {
