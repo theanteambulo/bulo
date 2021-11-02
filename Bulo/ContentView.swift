@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Note SceneStorage is a better choice than AppStorage here because
+    // SceneStorage attaches values to individual instances of the application,
+    // avoiding behaviour on iPad where running two instances of the application
+    // in splitscreen mode results in both instances remaining in synchronous
+    // states, like with AppStorage. SceneStorage also has the advantage that
+    // it doesn't use UserDefaults, so it won't clash with other values.
+    /// The tab that is currently selected by the user.
     @SceneStorage("selectedView") var selectedView: String?
 
     var body: some View {

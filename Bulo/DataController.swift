@@ -14,6 +14,7 @@ class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
 
+    /// An instance of DataController for previewing purposes.
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         let viewContext = dataController.container.viewContext
@@ -61,6 +62,7 @@ class DataController: ObservableObject {
             project.closed = Bool.random()
             project.items = []
 
+            // Each project gets 10 items.
             for itemCounter in 1...10 {
                 let item = Item(context: viewContext)
                 item.title = "Item \(itemCounter)"
@@ -82,10 +84,13 @@ class DataController: ObservableObject {
         }
     }
 
+    /// Deletes a given object from the Core Data context.
+    /// - Parameter object: The NSManagedObject to delete from the Core Data context.
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
     }
 
+    /// Batch deletes all projects and items from the Core Data context.
     func deleteAll() {
         let fetchRequestItems: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
         let batchDeleteRequestItems = NSBatchDeleteRequest(fetchRequest: fetchRequestItems)
@@ -96,10 +101,16 @@ class DataController: ObservableObject {
         _ = try? container.viewContext.execute(batchDeleteRequestProjects)
     }
 
+    /// Counts the number of objects in the Core Data context for a given FetchRequest, without actually having to
+    /// execute that FetchRequest to get the count.
+    /// - Returns: A count of the objects in the Core Data context for a given FetchRequest.
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
 
+    /// Determines whether the user has earned a given award.
+    /// - Parameter award: The award to test whether the user has earned or not.
+    /// - Returns: Boolean indicating whether the user has earned the award or not.
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
         case "items":
