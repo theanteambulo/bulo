@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A structure that stores awards earnable by the user as they use the app more.
 struct Award: Decodable, Identifiable {
     var id: String { name }
     let name: String
@@ -16,6 +17,8 @@ struct Award: Decodable, Identifiable {
     let value: Int
     let image: String
 
+    // The allAwards property is useful as we load awards in more than one place. Reminder that static
+//    contants can access each other in Swift because they're created lazily.
     static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json")
     static let example = allAwards[0]
 }
