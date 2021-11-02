@@ -11,15 +11,23 @@ struct ProjectsView: View {
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) var managedObjectContext
 
+    /// Boolean to indicate whether the ActionSheet for sorting project items should be displayed.
     @State private var showingSortOrderActionSheet = false
+    /// The currently selected sorting method.
     @State private var sortOrder = Item.SortOrder.optimized
 
+    /// Boolean to indicate whether open or closed projects are being shown
     let showClosedProjects: Bool
+    /// The user's projects.
     let projects: FetchRequest<Project>
 
+    /// Tag value for the Open Projects tab.
     static let openTag: String? = "Open"
+    /// Tag value for the Closed Projects tab.
     static let closedTag: String? = "Closed"
 
+    // Construct a fetch request to show the user's projects, depending on whether we are in the Open or
+    // Closed Projects tab.
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
 
@@ -33,6 +41,10 @@ struct ProjectsView: View {
         )
     }
 
+    /// A view containing a list of the user's projects where each project has a sublist displaying its
+    /// associated items.
+    ///
+    /// The "Add Projects" button is only displayed on the Open Projects tab, where it makes logical sense.
     var projectsList: some View {
         List {
             ForEach(projects.wrappedValue) { project in
@@ -58,6 +70,7 @@ struct ProjectsView: View {
         .listStyle(InsetGroupedListStyle())
     }
 
+    /// A toolbar item containing a button for choosing a project item sorting method.
     var sortOrderToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
@@ -68,6 +81,7 @@ struct ProjectsView: View {
         }
     }
 
+    /// A toolbar item containing a button for adding a new project.
     var addProjectToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             if showClosedProjects == false {
@@ -120,7 +134,8 @@ struct ProjectsView: View {
             DefaultDetailView()
         }
     }
-
+    
+    /// Saves a new project to the Core Data context.
     func addProject() {
         withAnimation {
             let project = Project(context: managedObjectContext)
@@ -129,7 +144,9 @@ struct ProjectsView: View {
             dataController.save()
         }
     }
-
+    
+    /// Saves a new item associated with a given parent project to the Core Data context.
+    /// - Parameter project: The parent project for the newly added item.
     func addItem(to project: Project) {
         withAnimation {
             let item = Item(context: managedObjectContext)
@@ -138,7 +155,11 @@ struct ProjectsView: View {
             dataController.save()
         }
     }
-
+    
+    /// Deletes an item from a given parent project from the Core Data context.
+    /// - Parameters:
+    ///   - offsets: A set of indices relative to the list of items.
+    ///   - project: The parent project of the item to be deleted.
     func delete(_ offsets: IndexSet,
                 from project: Project) {
         let allItems = project.projectItems(using: sortOrder)

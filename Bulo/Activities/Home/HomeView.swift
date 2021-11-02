@@ -32,7 +32,7 @@ struct HomeView: View {
     // Construct a fetch request to show the 10 highest-priority, incomplete items from open projects. As
     // part of the managed object subclass that Xcode generates, we get a fetchRequest() method that creates
     // an NSFetchRequest to read that class. This causes problems in testing because Core Data doesn't know
-    // where to find the entity description. For this reason, the NSFetchRequest for items is created by hand.
+    // where to find the entity description. For this reason, the NSFetchRequest for items is created manually.
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         let completedPredicate = NSPredicate(format: "completed = false")
