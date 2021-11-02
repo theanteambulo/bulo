@@ -8,6 +8,14 @@
 import Foundation
 
 extension Bundle {
+    /// Locates, loads, and decodes a given JSON file from the app bundle.
+    /// - Parameter type: The type of data to decode the JSON into.
+    /// - Parameter file: The name of the file in the bundle to decode.
+    /// - Parameter dateDecodingStrategy: The date decoding strategy used by the JSON decoder.
+    /// Default value is .deferredToDate.
+    /// - Parameter keyDecodingStrategy: The key decoding strategy used by the JSON decoder.
+    /// Default value is .useDefaultKeys
+    /// - Returns: The decoded JSON data contained in the file.
     func decode<T: Decodable>(
         _ type: T.Type,
         from file: String,
