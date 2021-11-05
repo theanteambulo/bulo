@@ -36,4 +36,17 @@ class DevelopmentTests: BaseTestCase {
                        0,
                        "deleteAll() should leave 0 items.")
     }
+
+    func testExampleProjectIsClosed() {
+        let project = Project.example
+        XCTAssertTrue(project.closed,
+                      "The example project should be closed by default.")
+    }
+
+    func testExampleItemHighPriority() {
+        let item = Item.example
+        XCTAssertEqual(item.priority,
+                      3,
+                      "The example item should have high priority by default.")
+    }
 }

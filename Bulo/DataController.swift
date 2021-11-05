@@ -27,8 +27,9 @@ class DataController: ObservableObject {
 
         return dataController
     }()
-    
-    /// Ensures that the data model is only loaded once, ensuring only one model is loaded by the NSPersistentCloudKitContainer.
+
+    /// Ensures that the data model is only loaded once, ensuring only one model is loaded by the
+    /// NSPersistentCloudKitContainer.
     static let model: NSManagedObjectModel = {
         guard let url = Bundle.main.url(forResource: "Main", withExtension: ".momd") else {
             fatalError("Failed to locate model file")
