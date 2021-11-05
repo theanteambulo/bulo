@@ -30,6 +30,41 @@ class AwardTests: BaseTestCase {
         }
     }
 
+    /// Verifies the number of awards for the user to earn with each criterion is correct in the Awards.json file.
+    func testAwardsToEarn() throws {
+        let itemsAddedAwards = awards.filter { award in
+            award.criterion == "items"
+        }
+
+        let itemsCompletedAwards = awards.filter { award in
+            award.criterion == "complete"
+        }
+
+        let chatAwards = awards.filter { award in
+            award.criterion == "chat"
+        }
+
+        let premiumUnlockAwards = awards.filter { award in
+            award.criterion == "unlock"
+        }
+
+        XCTAssertEqual(itemsAddedAwards.count,
+                       8,
+                       "There should be 8 awards to earn.")
+
+        XCTAssertEqual(itemsCompletedAwards.count,
+                       8,
+                       "There should be 8 awards to earn.")
+
+        XCTAssertEqual(chatAwards.count,
+                       3,
+                       "There should be 8 awards to earn.")
+
+        XCTAssertEqual(premiumUnlockAwards.count,
+                       1,
+                       "There should be 8 awards to earn.")
+    }
+
     /// Verifies when the user has added a certain number of items they have earned the correct number of awards.
     func testAddingItems() throws {
         let values = [
@@ -44,11 +79,8 @@ class AwardTests: BaseTestCase {
         ]
 
         for (count, value) in values.enumerated() {
-            var items = [Item]()
-
             for _ in 0..<value {
-                let item = Item(context: managedObjectContext)
-                items.append(item)
+                _ = Item(context: managedObjectContext)
             }
 
             let matches = awards.filter { award in
@@ -59,9 +91,7 @@ class AwardTests: BaseTestCase {
                            count + 1,
                            "Adding \(value) items should unlock \(count + 1) awards")
 
-            for item in items {
-                dataController.delete(item)
-            }
+                dataController.deleteAll()
         }
     }
 
@@ -79,12 +109,9 @@ class AwardTests: BaseTestCase {
         ]
 
         for (count, value) in values.enumerated() {
-            var items = [Item]()
-
             for _ in 0..<value {
                 let item = Item(context: managedObjectContext)
                 item.completed = true
-                items.append(item)
             }
 
             let matches = awards.filter { award in
@@ -95,9 +122,7 @@ class AwardTests: BaseTestCase {
                            count + 1,
                            "Completing \(value) items should unlock \(count + 1) awards")
 
-            for item in items {
-                dataController.delete(item)
-            }
+                dataController.deleteAll()
         }
     }
 }

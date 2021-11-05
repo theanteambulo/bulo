@@ -27,6 +27,19 @@ class DataController: ObservableObject {
 
         return dataController
     }()
+    
+    /// Ensures that the data model is only loaded once, ensuring only one model is loaded by the NSPersistentCloudKitContainer.
+    static let model: NSManagedObjectModel = {
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: ".momd") else {
+            fatalError("Failed to locate model file")
+        }
+
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load model file")
+        }
+
+        return managedObjectModel
+    }()
 
     /// Initializes a data controller, either in memory (for temporary use such as testing and previewing), or on
     /// permanent storage (for use in regular app runs).
@@ -34,7 +47,7 @@ class DataController: ObservableObject {
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "Main")
+        container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
 
         // For testing and previewing purposes, we create a temporary, in-memory database by writing
         // to /dev/null so our data is destroyed after the app finishes running.
@@ -124,7 +137,7 @@ class DataController: ObservableObject {
             let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
             fetchRequest.predicate = NSPredicate(format: "completed = true")
             let awardCount = count(for: fetchRequest)
-            return awardCount > award.value
+            return awardCount >= award.value
 
         default:
             // an unknown criterion; this should never be allowed
