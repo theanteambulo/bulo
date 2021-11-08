@@ -10,12 +10,13 @@ import XCTest
 @testable import Bulo
 
 class ProjectTests: BaseTestCase {
-
     /// Verify that Core Data creates projects and items in storage as expected.
     func testCreatingProjectsAndItems() {
+        // Given
         let targetCount = 10
 
         for _ in 0..<targetCount {
+            // When
             let project = Project(context: managedObjectContext)
 
             for _ in 0..<targetCount {
@@ -24,6 +25,7 @@ class ProjectTests: BaseTestCase {
             }
         }
 
+        // Then
         XCTAssertEqual(dataController.count(for: Project.fetchRequest()),
                        targetCount)
         XCTAssertEqual(dataController.count(for: Item.fetchRequest()),
@@ -32,13 +34,16 @@ class ProjectTests: BaseTestCase {
 
     /// Verifies that the Core Data cascade delete system is working.
     func testDeletingProjectCascadeDeletesItems() throws {
+        // Given
         try dataController.createSampleData()
 
         let request = NSFetchRequest<Project>(entityName: "Project")
         let projects = try managedObjectContext.fetch(request)
 
+        // When
         dataController.delete(projects[0])
 
+        // Then
         XCTAssertEqual(dataController.count(for: Project.fetchRequest()),
                        4)
         XCTAssertEqual(dataController.count(for: Item.fetchRequest()),

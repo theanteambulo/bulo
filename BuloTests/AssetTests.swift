@@ -11,7 +11,9 @@ import XCTest
 class AssetTests: XCTestCase {
     /// Verifies all the colors we expect are in our asset catalogue.
     func testColorsExist() {
+        // Given
         for color in Project.colors {
+            // Then
             XCTAssertNotNil(UIColor(named: color),
                             "Failed to load color \(color) from asset catalogue")
         }
@@ -20,6 +22,7 @@ class AssetTests: XCTestCase {
     /// Verifies the JSON in Awards.json is valid and no changes have been made to the Awards
     /// struct such that it no longer matches the JSON.
     func testJSONLoadsCorrectly() {
+        // Then
         XCTAssertTrue(Award.allAwards.isEmpty == false,
                       "Failed to load awards from JSON")
     }

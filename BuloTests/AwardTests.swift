@@ -15,7 +15,9 @@ class AwardTests: BaseTestCase {
 
     /// Verifies that each award's ID matches its name.
     func testAwardIDMatchesName() {
+        // Given
         for award in awards {
+            // Then
             XCTAssertEqual(award.id,
                            award.name,
                            "Award ID should always match its name")
@@ -24,7 +26,9 @@ class AwardTests: BaseTestCase {
 
     /// Verifies that new users have not earned any awards.
     func testNoAwards() throws {
+        // Given
         for award in awards {
+            // Then
             XCTAssertFalse(dataController.hasEarned(award: award),
                            "New users should have no earned awards")
         }
@@ -32,6 +36,7 @@ class AwardTests: BaseTestCase {
 
     /// Verifies the number of awards for the user to earn with each criterion is correct in the Awards.json file.
     func testAwardsToEarn() throws {
+        // Given
         let itemsAddedAwards = awards.filter { award in
             award.criterion == "items"
         }
@@ -48,6 +53,7 @@ class AwardTests: BaseTestCase {
             award.criterion == "unlock"
         }
 
+        // When
         XCTAssertEqual(itemsAddedAwards.count,
                        8,
                        "There should be 8 awards to earn.")
@@ -67,6 +73,7 @@ class AwardTests: BaseTestCase {
 
     /// Verifies when the user has added a certain number of items they have earned the correct number of awards.
     func testAddingItems() throws {
+        // Given
         let values = [
             1,
             10,
@@ -83,10 +90,12 @@ class AwardTests: BaseTestCase {
                 _ = Item(context: managedObjectContext)
             }
 
+            // When
             let matches = awards.filter { award in
                 award.criterion == "items" && dataController.hasEarned(award: award)
             }
 
+            // Then
             XCTAssertEqual(matches.count,
                            count + 1,
                            "Adding \(value) items should unlock \(count + 1) awards")
@@ -97,6 +106,7 @@ class AwardTests: BaseTestCase {
 
     /// Verifies when the user has completed a certain number of items they have earned the correct number of awards.
     func testCompletingItems() throws {
+        // Given
         let values = [
             1,
             10,
@@ -114,10 +124,12 @@ class AwardTests: BaseTestCase {
                 item.completed = true
             }
 
+            // When
             let matches = awards.filter { award in
                 award.criterion == "complete" && dataController.hasEarned(award: award)
             }
 
+            // Then
             XCTAssertEqual(matches.count,
                            count + 1,
                            "Completing \(value) items should unlock \(count + 1) awards")
