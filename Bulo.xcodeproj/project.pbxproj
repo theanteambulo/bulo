@@ -16,6 +16,8 @@
 		2353F6AA2739B45B00E80748 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F6A92739B45B00E80748 /* ExtensionTests.swift */; };
 		2353F6AD2739B9DE00E80748 /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 2353F6AC2739B9DE00E80748 /* DecodableDictionary.json */; };
 		2353F6AF2739BA1C00E80748 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 2353F6AE2739BA1C00E80748 /* DecodableString.json */; };
+		2353F6B72739C68500E80748 /* BuloPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F6B62739C68500E80748 /* BuloPerformanceTests.swift */; };
+		2353F6BE2739C72C00E80748 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F6BD2739C72C00E80748 /* PerformanceTests.swift */; };
 		238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC82C2717412F006E1BDC /* BuloApp.swift */; };
 		238AC82F2717412F006E1BDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC82E2717412F006E1BDC /* ContentView.swift */; };
 		238AC83127174130006E1BDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238AC83027174130006E1BDC /* Assets.xcassets */; };
@@ -48,6 +50,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2353F6B82739C68500E80748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 238AC8282717412F006E1BDC;
+			remoteInfo = Bulo;
+		};
 		23BE311A2733BF4F0007AD41 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
@@ -68,6 +77,9 @@
 		2353F6A92739B45B00E80748 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		2353F6AC2739B9DE00E80748 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		2353F6AE2739BA1C00E80748 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
+		2353F6B42739C68500E80748 /* BuloPerformanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuloPerformanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2353F6B62739C68500E80748 /* BuloPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloPerformanceTests.swift; sourceTree = "<group>"; };
+		2353F6BD2739C72C00E80748 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		238AC8292717412F006E1BDC /* Bulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238AC82C2717412F006E1BDC /* BuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloApp.swift; sourceTree = "<group>"; };
 		238AC82E2717412F006E1BDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +118,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2353F6B12739C68500E80748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238AC8262717412F006E1BDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,11 +160,21 @@
 			path = TestFixtures;
 			sourceTree = "<group>";
 		};
+		2353F6B52739C68500E80748 /* BuloPerformanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				2353F6B62739C68500E80748 /* BuloPerformanceTests.swift */,
+				2353F6BD2739C72C00E80748 /* PerformanceTests.swift */,
+			);
+			path = BuloPerformanceTests;
+			sourceTree = "<group>";
+		};
 		238AC8202717412F006E1BDC = {
 			isa = PBXGroup;
 			children = (
 				238AC82B2717412F006E1BDC /* Bulo */,
 				23BE31172733BF4F0007AD41 /* BuloTests */,
+				2353F6B52739C68500E80748 /* BuloPerformanceTests */,
 				238AC82A2717412F006E1BDC /* Products */,
 				2352800F2718B15200ACA356 /* Frameworks */,
 			);
@@ -156,6 +185,7 @@
 			children = (
 				238AC8292717412F006E1BDC /* Bulo.app */,
 				23BE31162733BF4F0007AD41 /* BuloTests.xctest */,
+				2353F6B42739C68500E80748 /* BuloPerformanceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,9 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				2353F6AB2739B99300E80748 /* TestFixtures */,
+				23BE31182733BF4F0007AD41 /* BuloTests.swift */,
 				2353F6A92739B45B00E80748 /* ExtensionTests.swift */,
 				23C14B3427351B73001A6F28 /* DevelopmentTests.swift */,
-				23BE31182733BF4F0007AD41 /* BuloTests.swift */,
 				23BE311F2733C0FA0007AD41 /* AssetTests.swift */,
 				23D43B8827345BF30091B773 /* AwardTests.swift */,
 				23D43B8A27345C2A0091B773 /* ProjectTests.swift */,
@@ -279,6 +309,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2353F6B32739C68500E80748 /* BuloPerformanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2353F6BA2739C68500E80748 /* Build configuration list for PBXNativeTarget "BuloPerformanceTests" */;
+			buildPhases = (
+				2353F6B02739C68500E80748 /* Sources */,
+				2353F6B12739C68500E80748 /* Frameworks */,
+				2353F6B22739C68500E80748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2353F6B92739C68500E80748 /* PBXTargetDependency */,
+			);
+			name = BuloPerformanceTests;
+			productName = BuloPerformanceTests;
+			productReference = 2353F6B42739C68500E80748 /* BuloPerformanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		238AC8282717412F006E1BDC /* Bulo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 238AC83727174130006E1BDC /* Build configuration list for PBXNativeTarget "Bulo" */;
@@ -325,6 +373,10 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					2353F6B32739C68500E80748 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 238AC8282717412F006E1BDC;
+					};
 					238AC8282717412F006E1BDC = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -350,11 +402,19 @@
 			targets = (
 				238AC8282717412F006E1BDC /* Bulo */,
 				23BE31152733BF4F0007AD41 /* BuloTests */,
+				2353F6B32739C68500E80748 /* BuloPerformanceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2353F6B22739C68500E80748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238AC8272717412F006E1BDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +461,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2353F6B02739C68500E80748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2353F6BE2739C72C00E80748 /* PerformanceTests.swift in Sources */,
+				2353F6B72739C68500E80748 /* BuloPerformanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238AC8252717412F006E1BDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +516,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2353F6B92739C68500E80748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 238AC8282717412F006E1BDC /* Bulo */;
+			targetProxy = 2353F6B82739C68500E80748 /* PBXContainerItemProxy */;
+		};
 		23BE311B2733BF4F0007AD41 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 238AC8282717412F006E1BDC /* Bulo */;
@@ -485,6 +559,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2353F6BB2739C68500E80748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52R27K29BJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.BuloPerformanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bulo.app/Bulo";
+			};
+			name = Debug;
+		};
+		2353F6BC2739C68500E80748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52R27K29BJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.BuloPerformanceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bulo.app/Bulo";
+			};
+			name = Release;
+		};
 		238AC83527174130006E1BDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -716,6 +836,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2353F6BA2739C68500E80748 /* Build configuration list for PBXNativeTarget "BuloPerformanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2353F6BB2739C68500E80748 /* Debug */,
+				2353F6BC2739C68500E80748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		238AC8242717412F006E1BDC /* Build configuration list for PBXProject "Bulo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
