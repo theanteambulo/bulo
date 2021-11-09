@@ -59,6 +59,16 @@
                ReferencedContainer = "container:Bulo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "23D898F1273A706900D16B9A"
+               BuildableName = "BuloUITests.xctest"
+               BlueprintName = "BuloUITests"
+               ReferencedContainer = "container:Bulo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
