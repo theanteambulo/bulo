@@ -97,4 +97,70 @@ class BuloUITests: XCTestCase {
         XCTAssertTrue(app.buttons["New Item 2"].exists,
                       "The new item name should be visible in the list.")
     }
+
+    func testAllAwardsShowLockedAlert() {
+        app.buttons["Awards"].tap()
+
+        for award in app.scrollViews.buttons.allElementsBoundByIndex {
+            award.tap()
+            XCTAssertTrue(app.alerts["Locked"].exists,
+                          "There should be a Locked alert showing for awards.")
+            app.buttons["OK"].tap()
+        }
+    }
+
+    // can do the opposite of this test to make sure reopening a project moves it to the open tab
+    func testClosingOpenProjectMovesItToClosedTabs() {
+        app.buttons["Closed"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       0,
+                       "There should be 0 projects and therefore no list rows initially.")
+
+        app.buttons["Open"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       0,
+                       "There should be 0 projects and therefore no list rows initially.")
+
+        app.buttons["Add Project"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       1,
+                       "There should be 1 project and therefore 1 row in the list.")
+
+        app.buttons["New Project"].tap()
+        app.buttons["Close Project"].tap()
+
+        XCTAssertTrue(app.tabBars.element.buttons["Open"].isSelected,
+                       "After a project is closed, the user should be returned to the Open Projects tab.")
+
+        app.buttons["Closed"].tap()
+        // why is the table not being located by the UI test?
+        XCTAssertEqual(app.tables.cells.count,
+                       1,
+                       "There should be 1 project and therefore 1 row in the list.")
+    }
+
+    func testAtLeastOneAwardShowsUnlockedAlert() {
+        // Go to the Open Projects tab and add one project and one item.
+        testOpenTabAddsItems()
+
+        app.buttons["Awards"].tap()
+
+        app.scrollViews.buttons.firstMatch.tap()
+        // this could be greatly improved by testing multiple awards
+        XCTAssertTrue(app.alerts["Unlocked: First Steps"].exists,
+                      "There should be an Unlocked alert showing for awards.")
+        app.buttons["OK"].tap()
+    }
+
+    func testSwipeToDelete() {
+        // Go to the Open Projects tab and add one project and one item.
+        testOpenTabAddsItems()
+
+        app.buttons["New Item"].swipeLeft()
+        app.buttons["Delete"].tap()
+
+        XCTAssertEqual(app.tables.cells.count,
+                       1,
+                       "There should be 1 project, 0 items, and therefore 1 row in the list.")
+    }
 }
