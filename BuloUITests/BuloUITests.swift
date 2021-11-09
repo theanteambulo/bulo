@@ -81,20 +81,8 @@ class BuloUITests: XCTestCase {
     }
 
     func testEditingItemUpdatesCorrectly() {
-        app.buttons["Open"].tap()
-        XCTAssertEqual(app.tables.cells.count,
-                       0,
-                       "There should be 0 projects and therefore no list rows initially.")
-
-        app.buttons["Add Project"].tap()
-        XCTAssertEqual(app.tables.cells.count,
-                       1,
-                       "There should be 1 project and therefore 1 row in the list.")
-
-        app.buttons["Add Item"].tap()
-        XCTAssertEqual(app.tables.cells.count,
-                       2,
-                       "There should be 1 project, 1 item and therefore 2 rows in the list.")
+        // Go to the Open Projects tab and add one project and one item.
+        testOpenTabAddsItems()
 
         app.buttons["New Item"].tap()
         app.textFields["Item name"].tap()
