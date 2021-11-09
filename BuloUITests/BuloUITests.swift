@@ -59,23 +59,54 @@ class BuloUITests: XCTestCase {
         app.buttons["Open"].tap()
         XCTAssertEqual(app.tables.cells.count,
                        0,
-                       "There should be 0 projects and therefore no list rows initially")
+                       "There should be 0 projects and therefore no list rows initially.")
 
         app.buttons["Add Project"].tap()
         XCTAssertEqual(app.tables.cells.count,
                        1,
                        "There should be 1 project and therefore 1 row in the list.")
 
-        app.buttons["EDIT PROJECT"].tap()
+        app.buttons["New Project"].tap()
         app.textFields["Project name"].tap()
 
         app.keys["space"].tap()
         app.keys["more"].tap()
         app.keys["2"].tap()
-        app.keys["Return"].tap()
+        app.buttons["Return"].tap()
 
         app.buttons["Open Projects"].tap()
 
-        XCTAssertTrue(app.buttons["NEW PROJECT 2"].exists, "")
+        XCTAssertTrue(app.buttons["New Project 2"].exists,
+                      "The new project name should be visible in the list.")
+    }
+
+    func testEditingItemUpdatesCorrectly() {
+        app.buttons["Open"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       0,
+                       "There should be 0 projects and therefore no list rows initially.")
+
+        app.buttons["Add Project"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       1,
+                       "There should be 1 project and therefore 1 row in the list.")
+
+        app.buttons["Add Item"].tap()
+        XCTAssertEqual(app.tables.cells.count,
+                       2,
+                       "There should be 1 project, 1 item and therefore 2 rows in the list.")
+
+        app.buttons["New Item"].tap()
+        app.textFields["Item name"].tap()
+
+        app.keys["space"].tap()
+        app.keys["more"].tap()
+        app.keys["2"].tap()
+        app.buttons["Return"].tap()
+
+        app.buttons["Open Projects"].tap()
+
+        XCTAssertTrue(app.buttons["New Item 2"].exists,
+                      "The new item name should be visible in the list.")
     }
 }

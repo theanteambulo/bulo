@@ -17,6 +17,7 @@ struct ProjectHeaderView: View {
                 Image(systemName: "square.and.pencil")
                     .font(.title2)
             }
+            .accessibilityLabel(Text(project.projectTitle))
 
             Spacer()
 
