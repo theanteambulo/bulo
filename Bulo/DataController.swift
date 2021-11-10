@@ -64,7 +64,9 @@ class DataController: ObservableObject {
             #if DEBUG
             if CommandLine.arguments.contains("enable-testing") {
                 self.deleteAll()
-                UIView.setAnimationsEnabled(false)
+                // Note that having animations disabled can make the keyboard functionality a bit buggy
+                // and means the initial key tap isn't recognised, impacting some tests.
+//                UIView.setAnimationsEnabled(false)
             }
             #endif
         }
