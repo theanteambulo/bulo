@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
 		2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D79B27294270003472BA /* ProjectSummaryView.swift */; };
+		231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */; };
 		232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
 		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
 		235280132718B2E700ACA356 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235280122718B2E700ACA356 /* HomeView.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		2301D79B27294270003472BA /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
+		231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		232F406B271EAF66006505E4 /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
 		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
 		235280102718B15200ACA356 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				235280142718B3E700ACA356 /* ProjectsView.swift */,
+				231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */,
 				23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */,
 				23C74DE1271B0BD800E2E651 /* ProjectHeaderView.swift */,
 				23C74DDD271B062A00E2E651 /* ItemRowView.swift */,
@@ -550,6 +553,7 @@
 				238AC82F2717412F006E1BDC /* ContentView.swift in Sources */,
 				23BC882F272000C70091EF80 /* Bundle-Decodable.swift in Sources */,
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
+				231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */,
 				2301D79A272940EF003472BA /* ItemListView.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,

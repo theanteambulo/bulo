@@ -16,6 +16,8 @@ struct ContentView: View {
     // it doesn't use UserDefaults, so it won't clash with other values.
     /// The tab that is currently selected by the user.
     @SceneStorage("selectedView") var selectedView: String?
+    /// The currently active DataController.
+    @EnvironmentObject var dataController: DataController
 
     var body: some View {
         TabView(selection: $selectedView) {
@@ -26,14 +28,16 @@ struct ContentView: View {
                     Text(.homeTab)
                 }
 
-            ProjectsView(showClosedProjects: false)
+            ProjectsView(dataController: dataController,
+                         showClosedProjects: false)
                 .tag(ProjectsView.openTag)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text(.openTab)
                 }
 
-            ProjectsView(showClosedProjects: true)
+            ProjectsView(dataController: dataController,
+                         showClosedProjects: true)
                 .tag(ProjectsView.closedTag)
                 .tabItem {
                     Image(systemName: "checkmark")
