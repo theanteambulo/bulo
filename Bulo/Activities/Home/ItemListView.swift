@@ -12,7 +12,7 @@ struct ItemListView: View {
     /// The header text for the view.
     let title: LocalizedStringKey
     /// The list of items to display.
-    let items: FetchedResults<Item>.SubSequence
+    let items: ArraySlice<Item>
 
     var body: some View {
         if items.isEmpty {

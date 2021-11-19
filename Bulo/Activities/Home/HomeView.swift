@@ -9,17 +9,7 @@ import CoreData
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var dataController: DataController
-
-    /// The user's currently open projects.
-    @FetchRequest(entity: Project.entity(),
-                  sortDescriptors: [NSSortDescriptor(keyPath: \Project.title,
-                                                     ascending: true)],
-                  predicate: NSPredicate(format: "closed = false")
-    ) var projects: FetchedResults<Project>
-
-    /// The user's highest-priority, incomplete items.
-    let items: FetchRequest<Item>
+    @StateObject var viewModel: ViewModel
 
     /// Tag value for the Home tab.
     static let tag: String? = "Home"
@@ -29,28 +19,9 @@ struct HomeView: View {
         [GridItem(.fixed(100))]
     }
 
-    // Construct a fetch request to show the 10 highest-priority, incomplete items from open projects. As
-    // part of the managed object subclass that Xcode generates, we get a fetchRequest() method that creates
-    // an NSFetchRequest to read that class. This causes problems in testing because Core Data doesn't know
-    // where to find the entity description. For this reason, the NSFetchRequest for items is created manually.
-    init() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        let completedPredicate = NSPredicate(format: "completed = false")
-        let openPredicate = NSPredicate(format: "project.closed = false")
-        let compoundPredicate = NSCompoundPredicate(type: .and,
-                                                    subpredicates: [completedPredicate,
-                                                                    openPredicate])
-
-        request.predicate = compoundPredicate
-
-        request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Item.priority,
-                             ascending: false)
-        ]
-
-        request.fetchLimit = 10
-
-        items = FetchRequest(fetchRequest: request)
+    init(dataController: DataController) {
+        let viewModel = ViewModel(dataController: dataController)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -59,7 +30,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: rows) {
-                            ForEach(projects, content: ProjectSummaryView.init)
+                            ForEach(viewModel.projects, content: ProjectSummaryView.init)
                         }
                         .padding([.horizontal,
                                   .top])
@@ -70,12 +41,12 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         ItemListView(
                             title: Strings.upNextSectionHeader.localized,
-                            items: items.wrappedValue.prefix(3)
+                            items: viewModel.upNext
                         )
 
                         ItemListView(
                             title: Strings.moreToExploreSectionHeader.localized,
-                            items: items.wrappedValue.dropFirst(3)
+                            items: viewModel.moreToExplore
                         )
                     }
                     .padding(.horizontal)
@@ -85,10 +56,7 @@ struct HomeView: View {
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle(Text(.homeTab))
             .toolbar {
-                Button("Add data") {
-                    dataController.deleteAll()
-                    try? dataController.createSampleData()
-                }
+                Button("Add data", action: viewModel.addSampleData)
             }
 
             DefaultDetailView()
@@ -99,6 +67,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(dataController: .preview)
     }
 }

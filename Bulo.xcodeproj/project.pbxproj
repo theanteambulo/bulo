@@ -50,6 +50,7 @@
 		23D43B8B27345C2A0091B773 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D43B8A27345C2A0091B773 /* ProjectTests.swift */; };
 		23D898F5273A706900D16B9A /* BuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F4273A706900D16B9A /* BuloUITests.swift */; };
 		23D898F7273A706900D16B9A /* BuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F6273A706900D16B9A /* BuloUITestsLaunchTests.swift */; };
+		23EA1F2527479D3B006F6313 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA1F2427479D3B006F6313 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		23D898F2273A706900D16B9A /* BuloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D898F4273A706900D16B9A /* BuloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloUITests.swift; sourceTree = "<group>"; };
 		23D898F6273A706900D16B9A /* BuloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		23EA1F2427479D3B006F6313 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				235280122718B2E700ACA356 /* HomeView.swift */,
+				23EA1F2427479D3B006F6313 /* HomeViewModel.swift */,
 				2301D799272940EF003472BA /* ItemListView.swift */,
 				23D07A5B273138C7003552F7 /* ItemListBodyView.swift */,
 				2301D79B27294270003472BA /* ProjectSummaryView.swift */,
@@ -540,6 +543,7 @@
 				23938BEC271F4A1B009920F1 /* DefaultDetailView.swift in Sources */,
 				2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */,
 				232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */,
+				23EA1F2527479D3B006F6313 /* HomeViewModel.swift in Sources */,
 				23BC8833272007AC0091EF80 /* AwardsView.swift in Sources */,
 				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
 				23C74DE2271B0BD800E2E651 /* ProjectHeaderView.swift in Sources */,
