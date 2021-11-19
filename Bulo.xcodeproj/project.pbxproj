@@ -51,6 +51,7 @@
 		23D898F5273A706900D16B9A /* BuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F4273A706900D16B9A /* BuloUITests.swift */; };
 		23D898F7273A706900D16B9A /* BuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F6273A706900D16B9A /* BuloUITestsLaunchTests.swift */; };
 		23EA1F2527479D3B006F6313 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA1F2427479D3B006F6313 /* HomeViewModel.swift */; };
+		23EA1F272747A77A006F6313 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA1F262747A77A006F6313 /* ItemRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		23D898F4273A706900D16B9A /* BuloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloUITests.swift; sourceTree = "<group>"; };
 		23D898F6273A706900D16B9A /* BuloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		23EA1F2427479D3B006F6313 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		23EA1F262747A77A006F6313 /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 				23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */,
 				23C74DE1271B0BD800E2E651 /* ProjectHeaderView.swift */,
 				23C74DDD271B062A00E2E651 /* ItemRowView.swift */,
+				23EA1F262747A77A006F6313 /* ItemRowViewModel.swift */,
 				23C74DE5271B0FBB00E2E651 /* EditProjectView.swift */,
 				23C74DDB271B024C00E2E651 /* EditItemView.swift */,
 			);
@@ -550,6 +553,7 @@
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
 				23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */,
 				23C74DE6271B0FBB00E2E651 /* EditProjectView.swift in Sources */,
+				23EA1F272747A77A006F6313 /* ItemRowViewModel.swift in Sources */,
 				23BC8831272006960091EF80 /* Award.swift in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
 				23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */,

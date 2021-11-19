@@ -8,44 +8,27 @@
 import SwiftUI
 
 struct ItemRowView: View {
-    /// The project used to construct this view.
-    @ObservedObject var project: Project
+    @StateObject var viewModel: ViewModel
+
     /// The item used to construct this view.
     @ObservedObject var item: Item
 
-    /// A containing a coloured icon based on a hierarchy of features of an item.
-    var icon: some View {
-        if item.completed {
-            return Image(systemName: "checkmark.circle.fill")
-                .foregroundColor(Color(project.projectColor))
-        } else if item.priority == 3 {
-            return Image(systemName: "exclamationmark.3")
-                .foregroundColor(Color(project.projectColor))
-        } else {
-            return Image(systemName: "circle")
-                .foregroundColor(Color(project.projectColor))
-        }
-    }
+    init(project: Project, item: Item) {
+        let viewModel = ViewModel(project: project, item: item)
+        _viewModel = StateObject(wrappedValue: viewModel)
 
-    /// A view to create a "more human" accessibility label for VoiceOver to read.
-    var label: Text {
-        if item.completed {
-            return Text("\(item.itemTitle), completed")
-        } else if item.priority == 3 {
-            return Text("\(item.itemTitle), high priority")
-        } else {
-            return Text(item.itemTitle)
-        }
+        self.item = item
     }
 
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
             Label {
-                Text(item.itemTitle)
+                Text(viewModel.itemTitle)
             } icon: {
-                icon
+                Image(systemName: viewModel.iconImageName)
+                    .foregroundColor(viewModel.iconColor.map { Color($0) } ?? .clear)
             }
-            .accessibilityLabel(label)
+            .accessibilityLabel(viewModel.label)
         }
     }
 }
