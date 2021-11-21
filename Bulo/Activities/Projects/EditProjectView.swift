@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditProjectView: View {
     /// The project used to construct this view.
-    let project: Project
+    @ObservedObject var project: Project
     /// An adaptive grid with a minimum height and width of 44 points.
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
