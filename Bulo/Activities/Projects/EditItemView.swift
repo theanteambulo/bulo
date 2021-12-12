@@ -63,7 +63,7 @@ struct EditItemView: View {
             }
         }
         .navigationTitle(Text(.editItem))
-        .onDisappear(perform: dataController.save)
+        .onDisappear(perform: save)
     }
 
     /// Synchronize the @State properties of EditItemView with their Core Data equivalents in whichever Item
@@ -75,6 +75,12 @@ struct EditItemView: View {
         item.detail = detail
         item.priority = Int16(priority)
         item.completed = completed
+    }
+
+    /// Ensures the item will be reindexed in Spotlight and changed data written back to Core Data when the user
+    /// leaves the screen.
+    func save() {
+        dataController.update(item)
     }
 }
 

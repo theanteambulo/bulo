@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreSpotlight
 import SwiftUI
 
 struct HomeView: View {
@@ -27,6 +28,19 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                // Check and unwrap viewModel.selectedItem. The navigation link only exists when something is selected.
+                if let item = viewModel.selectedItem {
+                    // NavigationLink only triggers when something changes due to tag and selection.
+                    NavigationLink(
+                        destination: EditItemView(item: item),
+                        tag: item,
+                        selection: $viewModel.selectedItem,
+                        label: EmptyView.init
+                    )
+                    // The id of the item showing, ensuring the view stays up to date even if the item changes.
+                    .id(item)
+                }
+
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: rows) {
@@ -58,9 +72,21 @@ struct HomeView: View {
             .toolbar {
                 Button("Add data", action: viewModel.addSampleData)
             }
+            .onContinueUserActivity(CSSearchableItemActionType,
+                                    perform: loadSpotlightItem)
 
             DefaultDetailView()
 
+        }
+    }
+
+    /// Finds and passes the unique identifier from Spotlight to the view model to select.
+    /// - Parameter userActivity: Any type of user activity.
+    func loadSpotlightItem(_ userActivity: NSUserActivity) {
+        // Finds the unique identifier of the item inside the userInfo dictionary.
+        if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+            // Passes the unique identifier to the view model to select the item.
+            viewModel.selectItem(with: uniqueIdentifier)
         }
     }
 }

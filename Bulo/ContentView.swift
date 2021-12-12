@@ -5,6 +5,7 @@
 //  Created by Jake King on 13/10/2021.
 //
 
+import CoreSpotlight
 import SwiftUI
 
 struct ContentView: View {
@@ -51,6 +52,14 @@ struct ContentView: View {
                     Text(.awardsTab)
                 }
         }
+        .onContinueUserActivity(CSSearchableItemActionType,
+                                perform: moveToHome)
+    }
+
+    /// Adjusts the selected tab to be the Home view whenever we get a Spotlight launch.
+    /// - Parameter input: Any type of NSUserActivity.
+    func moveToHome(_ input: Any) {
+        selectedView = HomeView.tag
     }
 }
 

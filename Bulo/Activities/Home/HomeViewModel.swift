@@ -16,6 +16,9 @@ extension HomeView {
         @Published var projects = [Project]()
         @Published var items = [Item]()
 
+        /// Tracks whichever Item object is currently selected.
+        @Published var selectedItem: Item?
+
         var dataController: DataController
 
         init(dataController: DataController) {
@@ -80,6 +83,12 @@ extension HomeView {
         func addSampleData() {
             dataController.deleteAll()
             try? dataController.createSampleData()
+        }
+
+        /// Sets the selected item property of the view model.
+        /// - Parameter identifier: The object id of the item to select.
+        func selectItem(with identifier: String) {
+            selectedItem = dataController.item(with: identifier)
         }
 
         var upNext: ArraySlice<Item> {

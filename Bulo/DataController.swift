@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreSpotlight
 import SwiftUI
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving, counting fetch
@@ -110,6 +111,18 @@ class DataController: ObservableObject {
     /// Deletes a given object from the Core Data context.
     /// - Parameter object: The NSManagedObject to delete from the Core Data context.
     func delete(_ object: NSManagedObject) {
+        // Get the object ID.
+        let objectID = object.objectID.uriRepresentation().absoluteString
+
+        // Type check.
+        if object is Item {
+            // If the object is an Item, delete it.
+            CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [objectID])
+        } else {
+            // If the object is a Project, delete all its items.
+            CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [objectID])
+        }
+
         container.viewContext.delete(object)
     }
 
@@ -154,5 +167,50 @@ class DataController: ObservableObject {
             // fatalError("Unknown award criterion \(award.criterion)")
             return false
         }
+    }
+
+    /// Writes the item's information to Spotlight and calls save() on the data controller to ensure Core Data is also
+    /// updated.
+    /// - Parameter item: The Item object to update.
+    func update(_ item: Item) {
+        // Create a stable unique identifier for the items being saved.
+        let itemID = item.objectID.uriRepresentation().absoluteString
+        let projectID = item.project?.objectID.uriRepresentation().absoluteString
+
+        // Create the set of attributes to be stored in Spotlight.
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.title = item.itemTitle
+        attributeSet.contentDescription = item.itemDetail
+
+        // Wrap up identifier and attributes in a Spotlight record, passing in domain identifier.
+        let searchableItem = CSSearchableItem(
+            uniqueIdentifier: itemID,
+            domainIdentifier: projectID,
+            attributeSet: attributeSet
+        )
+
+        // Send the item to Spotlight for indexing.
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+
+        // Ensure changed data also gets written to Core Data.
+        save()
+    }
+
+    /// Converts the unique identifier of the object selected provided by Spotlight into an Item object.
+    /// - Parameter uniqueIdentifier: The unique identifier of the object selected.
+    /// - Returns: The Item object with the object ID matching the unique identifier passed in.
+    func item(with uniqueIdentifier: String) -> Item? {
+        // Convert string into a URL.
+        guard let url = URL(string: uniqueIdentifier) else {
+            return nil
+        }
+
+        // Get the object ID for the URL.
+        guard let objectID = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
+            return nil
+        }
+
+        // Return the object with the matching object ID from the Core Data context.
+        return try? container.viewContext.existingObject(with: objectID) as? Item
     }
 }
