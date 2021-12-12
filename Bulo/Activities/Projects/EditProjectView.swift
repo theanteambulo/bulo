@@ -5,6 +5,7 @@
 //  Created by Jake King on 16/10/2021.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct EditProjectView: View {
@@ -26,6 +27,8 @@ struct EditProjectView: View {
     @State private var color: String
     /// A Boolean to indicate whether or not the delete confirmation Alert is being displayed or not.
     @State private var displayDeleteConfirmationAlert = false
+    /// An instance of CHHapticEngine responsible for spinning up the Taptic Engine.
+    @State private var hapticEngine = try? CHHapticEngine()
 
     // When we have multiple @StateObject properties that rely on each other, they must get created
     // in their own customer initialiser.
@@ -58,10 +61,9 @@ struct EditProjectView: View {
             Section(footer: Text(.warningFooter)) {
                 Button(project.closed
                        ? Strings.reopenProject.localized
-                       : Strings.closeProject.localized) {
-                    project.closed.toggle()
-                    update()
-                }
+                       : Strings.closeProject.localized,
+                       action: toggleClosed
+                )
 
                 Button(Strings.deleteProject.localized) {
                     displayDeleteConfirmationAlert.toggle()
@@ -86,6 +88,56 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
+    }
+
+    /// Toggles the project's closed property and provides haptic feedback to the user if they have closed the project.
+    func toggleClosed() {
+        project.closed.toggle()
+
+        if project.closed {
+            do {
+                try hapticEngine?.start()
+
+                // Haptic event parameters.
+                let hapticSharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0)
+                let hapticIntensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+
+                // Haptic event control points.
+                let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+                let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+
+                // Use parameter curve to control haptic intensity.
+                let buzzFadeParameter = CHHapticParameterCurve(
+                    parameterID: .hapticIntensityControl,
+                    controlPoints: [start, end],
+                    relativeTime: 0
+                )
+
+                // Create haptic events to play in sequence.
+                let tapEvent = CHHapticEvent(
+                    eventType: .hapticTransient,
+                    parameters: [hapticSharpness, hapticIntensity],
+                    relativeTime: 0
+                )
+
+                let buzzFadeEvent = CHHapticEvent(
+                    eventType: .hapticContinuous,
+                    parameters: [hapticSharpness, hapticIntensity],
+                    relativeTime: 0.125,
+                    duration: 1
+                )
+
+                // Create pattern in which to play events.
+                let pattern = try CHHapticPattern(events: [tapEvent, buzzFadeEvent],
+                                                  parameterCurves: [buzzFadeParameter])
+
+                // Create a player from the pattern and make it play from the start.
+                let player = try hapticEngine?.makePlayer(with: pattern)
+                try player?.start(atTime: 0)
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 
     /// Delete the Project object currently being edited from the Core Data context.
