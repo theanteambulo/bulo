@@ -25,6 +25,12 @@ struct EditProjectView: View {
     @State private var detail: String
     /// The colour given to the project by the user.
     @State private var color: String
+    /// A Boolean to indicate whether or not the user wants to be reminded about this project or not.
+    @State private var remindMe: Bool
+    /// The time that the user wants to be reminded about this project.
+    @State private var reminderTime: Date
+    /// A Boolean to indicate whether or not the notification error Alert is being displayed or not.
+    @State private var displayNotificationError = false
     /// A Boolean to indicate whether or not the delete confirmation Alert is being displayed or not.
     @State private var displayDeleteConfirmationAlert = false
     /// An instance of CHHapticEngine responsible for spinning up the Taptic Engine.
@@ -38,6 +44,14 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
+
+        if let projectReminderTime = project.reminderTime {
+            _reminderTime = State(wrappedValue: projectReminderTime)
+            _remindMe = State(wrappedValue: true)
+        } else {
+            _reminderTime = State(wrappedValue: Date())
+            _remindMe = State(wrappedValue: false)
+        }
     }
 
     var body: some View {
@@ -47,6 +61,28 @@ struct EditProjectView: View {
                           text: $title.onChange(update))
                 TextField(Strings.projectDescription.localized,
                           text: $detail.onChange(update))
+            }
+
+            Section(header: Text(.projectRemindersSectionHeader)) {
+                Toggle(Strings.showReminders.localized,
+                       isOn: $remindMe.animation().onChange(update))
+                    .alert(isPresented: $displayNotificationError) {
+                        Alert(
+                            title: Text(.projectRemindersErrorTitle),
+                            message: Text(.projectRemindersErrorMessage),
+                            primaryButton: .default(Text(.settingsButtonText),
+                                                    action: showAppSettings),
+                            secondaryButton: .cancel()
+                        )
+                    }
+
+                if remindMe {
+                    DatePicker(
+                        Strings.reminderTime.localized,
+                        selection: $reminderTime.onChange(update),
+                        displayedComponents: .hourAndMinute
+                    )
+                }
             }
 
             Section(header: Text(.projectColorSectionHeader)) {
@@ -88,6 +124,22 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
+
+        if remindMe {
+            project.reminderTime = reminderTime
+
+            dataController.addReminders(for: project) { success in
+                if success == false {
+                    project.reminderTime = nil
+                    remindMe = false
+
+                    displayNotificationError = true
+                }
+            }
+        } else {
+            project.reminderTime = nil
+            dataController.removeReminders(for: project)
+        }
     }
 
     /// Toggles the project's closed property and provides haptic feedback to the user if they have closed the project.
@@ -137,6 +189,16 @@ struct EditProjectView: View {
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
+        }
+    }
+
+    func showAppSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
         }
     }
 

@@ -49,6 +49,12 @@ enum Strings: LocalizedStringKey {
     case basicSettingsSectionHeader
     case projectName
     case projectDescription
+    case projectRemindersSectionHeader
+    case projectRemindersErrorTitle
+    case projectRemindersErrorMessage
+    case settingsButtonText
+    case showReminders
+    case reminderTime
     case projectColorSectionHeader
     case closeProject
     case reopenProject
