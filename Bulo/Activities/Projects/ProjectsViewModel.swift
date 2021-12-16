@@ -15,6 +15,8 @@ extension ProjectsView {
         let dataController: DataController
         /// Performs the initial fetch request and ensures it remains updated.
         private let projectsController: NSFetchedResultsController<Project>
+        /// Tracks whether we should be showing the store or not.
+        @Published var showingUnlockView = false
         /// An array of project objects.
         @Published var projects = [Project]()
         /// The currently selected sorting method.
@@ -22,12 +24,18 @@ extension ProjectsView {
         /// Boolean to indicate whether open or closed projects are being shown
         let showClosedProjects: Bool
 
-        /// Saves a new project to the Core Data context.
+        /// Saves a new project to the Core Data context if possible, otherwise toggles the showingUnlockView Boolean.
         func addProject() {
-            let project = Project(context: dataController.container.viewContext)
-            project.closed = false
-            project.creationDate = Date()
-            dataController.save()
+            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
+
+            if canCreate {
+                let project = Project(context: dataController.container.viewContext)
+                project.closed = false
+                project.creationDate = Date()
+                dataController.save()
+            } else {
+                showingUnlockView.toggle()
+            }
         }
 
         /// Saves a new item associated with a given parent project to the Core Data context.

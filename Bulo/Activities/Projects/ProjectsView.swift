@@ -122,6 +122,9 @@ struct ProjectsView: View {
 
             DefaultDetailView()
         }
+        .sheet(isPresented: $viewModel.showingUnlockView) {
+            UnlockView()
+        }
     }
 }
 

@@ -18,6 +18,7 @@ enum Strings: LocalizedStringKey {
     // GENERAL
     case okCallToAction
     case deleteCallToAction
+    case dismissCallToAction
 
     // TABS
     case homeTab
@@ -75,6 +76,17 @@ enum Strings: LocalizedStringKey {
 
     // AWARDS VIEW
     case lockedAlertTitle
+
+    // UNLOCK PREMIUM
+    case getUnlimitedProjectsTitle
+    case getUnlimitedProjectsTerms
+    case restoreUnlimitedProjects
+    case buyButton
+    case restoreButton
+    case storeLoadingError
+    case storeLoading
+    case purchaseThankYouMessage
+    case deferredPurchaseThankYouMessage
 
     // Without knowing how to extend other types of view beyond Text, such as Label, this computed property
     // was necessary to be able to reference the raw value of a case of the Strings enum as required.
