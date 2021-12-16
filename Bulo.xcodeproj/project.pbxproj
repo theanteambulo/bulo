@@ -26,6 +26,7 @@
 		238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83A271741E0006E1BDC /* Main.xcdatamodeld */; };
 		238AC83E27174468006E1BDC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83D27174468006E1BDC /* DataController.swift */; };
 		23938BEC271F4A1B009920F1 /* DefaultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */; };
+		2396564A2769D3FE003BFFCF /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239656492769D3FE003BFFCF /* UnlockManager.swift */; };
 		23B7680B2721476800B1A747 /* Color-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7680A2721476800B1A747 /* Color-Extensions.swift */; };
 		23B784552727D636007ABA29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23B784572727D636007ABA29 /* Localizable.strings */; };
 		23B784592727DBCD007ABA29 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 23B7845B2727DBCD007ABA29 /* Localizable.stringsdict */; };
@@ -102,6 +103,8 @@
 		238AC83D27174468006E1BDC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		238AC83F27174F9F006E1BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23938BEB271F4A1B009920F1 /* DefaultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailView.swift; sourceTree = "<group>"; };
+		239656492769D3FE003BFFCF /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
+		2396564B2769DEA0003BFFCF /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		23B7680A2721476800B1A747 /* Color-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extensions.swift"; sourceTree = "<group>"; };
 		23B784562727D636007ABA29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23B784582727D63D007ABA29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 		238AC82B2717412F006E1BDC /* Bulo */ = {
 			isa = PBXGroup;
 			children = (
+				239656492769D3FE003BFFCF /* UnlockManager.swift */,
+				2396564B2769DEA0003BFFCF /* Configuration.storekit */,
 				23D07A5727313843003552F7 /* Activities */,
 				23D07A562731381D003552F7 /* Localization */,
 				23D07A5527313815003552F7 /* Extensions */,
@@ -563,6 +568,7 @@
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
 				231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */,
 				2301D79A272940EF003472BA /* ItemListView.swift in Sources */,
+				2396564A2769D3FE003BFFCF /* UnlockManager.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
