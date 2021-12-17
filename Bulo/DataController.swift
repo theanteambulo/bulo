@@ -289,6 +289,22 @@ class DataController: ObservableObject {
         }
     }
 
+    /// Saves a new project to the Core Data context if possible, otherwise toggles the showingUnlockView Boolean.
+    /// - Returns: Boolean indicating whether the project was successfully added or not.
+    @discardableResult func addProject() -> Bool {
+        let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+
+        if canCreate {
+            let project = Project(context: container.viewContext)
+            project.closed = false
+            project.creationDate = Date()
+            save()
+            return true
+        } else {
+            return false
+        }
+    }
+
     /// Removes a reminder from a given project.
     /// - Parameter project: The project to remove the reminder from.
     func removeReminders(for project: Project) {

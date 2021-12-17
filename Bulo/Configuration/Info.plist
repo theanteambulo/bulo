@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>bulo://newProject</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>rectangle.stack.badge.plus</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Project</string>
+		</dict>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.theanteambulo.Bulo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bulo</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

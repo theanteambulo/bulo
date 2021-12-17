@@ -54,12 +54,18 @@ struct ContentView: View {
         }
         .onContinueUserActivity(CSSearchableItemActionType,
                                 perform: moveToHome)
+        .onOpenURL(perform: openURL)
     }
 
     /// Adjusts the selected tab to be the Home view whenever we get a Spotlight launch.
     /// - Parameter input: Any type of NSUserActivity.
     func moveToHome(_ input: Any) {
         selectedView = HomeView.tag
+    }
+
+    func openURL(_ url: URL) {
+        selectedView = ProjectsView.openTag
+        dataController.addProject()
     }
 }
 

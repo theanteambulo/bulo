@@ -14,6 +14,9 @@ struct BuloApp: App {
     @StateObject var dataController: DataController
     @StateObject var unlockManager: UnlockManager
 
+    // Tells SwiftUI to use the AppDelegate class for any UIKit functionality it can't currently handle itself.
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     init() {
         let dataController = DataController()
         let unlockManager = UnlockManager(dataController: dataController)
