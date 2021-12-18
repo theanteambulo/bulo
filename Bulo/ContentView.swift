@@ -20,6 +20,8 @@ struct ContentView: View {
     /// The currently active DataController.
     @EnvironmentObject var dataController: DataController
 
+    private let newProjectActivity = "com.theanteambulo.Bulo.newProject"
+
     var body: some View {
         TabView(selection: $selectedView) {
             HomeView(dataController: dataController)
@@ -54,6 +56,12 @@ struct ContentView: View {
         }
         .onContinueUserActivity(CSSearchableItemActionType,
                                 perform: moveToHome)
+        .onContinueUserActivity(newProjectActivity,
+                                perform: createProject)
+        .userActivity(newProjectActivity) { activity in
+            activity.isEligibleForPrediction = true
+            activity.title = "New Project"
+        }
         .onOpenURL(perform: openURL)
     }
 
@@ -63,7 +71,16 @@ struct ContentView: View {
         selectedView = HomeView.tag
     }
 
+    /// Responds to URL being opened by changing the selected tab to Open Projects and creating a new project.
+    /// - Parameter url: The url the app is launched from.
     func openURL(_ url: URL) {
+        selectedView = ProjectsView.openTag
+        dataController.addProject()
+    }
+
+    /// Responds to triggered user activity by changing the selected tab to Open Projects and creating a new project.
+    /// - Parameter userActivity: The user activity triggered.
+    func createProject(_ userActivity: NSUserActivity) {
         selectedView = ProjectsView.openTag
         dataController.addProject()
     }
