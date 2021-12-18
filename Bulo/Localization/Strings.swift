@@ -88,6 +88,12 @@ enum Strings: LocalizedStringKey {
     case purchaseThankYouMessage
     case deferredPurchaseThankYouMessage
 
+    // WIDGETS
+    case widgetUpNext
+    case widgetNoItems
+    case widgetTopPrioritySingle
+    case widgetTopPriorityMultiple
+
     // Without knowing how to extend other types of view beyond Text, such as Label, this computed property
     // was necessary to be able to reference the raw value of a case of the Strings enum as required.
     var localized: LocalizedStringKey {

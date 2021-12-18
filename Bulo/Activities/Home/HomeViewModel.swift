@@ -36,19 +36,7 @@ extension HomeView {
                 cacheName: nil
             )
 
-            // Construct a fetch request to show the 10 highest priority, incomplete items from open projects.
-            let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
-            let openPredicate = NSPredicate(format: "completed = false")
-            let incompletePredicate = NSPredicate(format: "project.closed = false")
-            itemRequest.predicate = NSCompoundPredicate(
-                type: .and,
-                subpredicates: [
-                    openPredicate,
-                    incompletePredicate
-                ]
-            )
-            itemRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority, ascending: false)]
-            itemRequest.fetchLimit = 10
+            let itemRequest = dataController.fetchRequestForTopItems(count: 10)
 
             itemsController = NSFetchedResultsController(
                 fetchRequest: itemRequest,

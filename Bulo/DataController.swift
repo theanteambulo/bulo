@@ -7,9 +7,8 @@
 
 import CoreData
 import CoreSpotlight
-import StoreKit
 import SwiftUI
-import UserNotifications
+import WidgetKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving, counting fetch
 /// requests, tracking awards, and dealing with sample data.
@@ -75,6 +74,12 @@ class DataController: ObservableObject {
         // to /dev/null so our data is destroyed after the app finishes running.
         if inMemory {
             container.persistentStoreDescriptions.first?.url =  URL(fileURLWithPath: "/dev/null")
+        } else {
+            let groupID = "group.com.theanteambulo.Bulo"
+
+            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID) {
+                container.persistentStoreDescriptions.first?.url = url.appendingPathComponent("Main.sqlite")
+            }
         }
 
         container.loadPersistentStores { _, error in
@@ -90,24 +95,6 @@ class DataController: ObservableObject {
 //                UIView.setAnimationsEnabled(false)
             }
             #endif
-        }
-    }
-
-    func appLaunched() {
-        // Check the user has at least 5 projects.
-        guard count(for: Project.fetchRequest()) >= 5 else {
-            return
-        }
-
-        // Find all scenes.
-        let allScenes = UIApplication.shared.connectedScenes
-
-        // Get the one that's currently receiving user input.
-        let scene = allScenes.first { $0.activationState == .foregroundActive }
-
-        // Request for a review prompt to appear there.
-        if let windowScene = scene as? UIWindowScene {
-            SKStoreReviewController.requestReview(in: windowScene)
         }
     }
 
@@ -143,6 +130,7 @@ class DataController: ObservableObject {
     func save() {
         if container.viewContext.hasChanges {
             try? container.viewContext.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 
@@ -180,31 +168,6 @@ class DataController: ObservableObject {
     /// - Returns: A count of the objects in the Core Data context for a given FetchRequest.
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
-    }
-
-    /// Determines whether the user has earned a given award.
-    /// - Parameter award: The award to test whether the user has earned or not.
-    /// - Returns: Boolean indicating whether the user has earned the award or not.
-    func hasEarned(award: Award) -> Bool {
-        switch award.criterion {
-        case "items":
-            // returns true if the user added a certain number of items
-            let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
-            let awardCount = count(for: fetchRequest)
-            return awardCount >= award.value
-
-        case "complete":
-            // returns true if the user completed a certain number of items
-            let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
-            fetchRequest.predicate = NSPredicate(format: "completed = true")
-            let awardCount = count(for: fetchRequest)
-            return awardCount >= award.value
-
-        default:
-            // an unknown criterion; this should never be allowed
-            // fatalError("Unknown award criterion \(award.criterion)")
-            return false
-        }
     }
 
     /// Writes the item's information to Spotlight and calls save() on the data controller to ensure Core Data is also
@@ -252,43 +215,6 @@ class DataController: ObservableObject {
         return try? container.viewContext.existingObject(with: objectID) as? Item
     }
 
-    /// Add a reminder to a given project.
-    /// - Parameters:
-    ///   - project: The project to add a reminder to.
-    ///   - completion: Handler function to send back any errors that arise during notification work.
-    func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
-        // The hub of UserNotifications framework responsible for reading and writing notifications.
-        let center = UNUserNotificationCenter.current()
-
-        // Determine the user's notification settings.
-        center.getNotificationSettings { settings in
-            switch settings.authorizationStatus {
-            // If not already determined, determine the user's settings.
-            case .notDetermined:
-                self.requestNotifications { success in
-                    if success {
-                        // Permission granted, place reminders.
-                        self.placeReminders(for: project, completion: completion)
-                    } else {
-                        // Permission denied, failure.
-                        DispatchQueue.main.async {
-                            completion(false)
-                        }
-                    }
-                }
-            // If already authorised, place reminders by passing in completion closure.
-            case .authorized:
-                self.placeReminders(for: project,
-                                    completion: completion)
-            // Failure - call completion handler directly.
-            default:
-                DispatchQueue.main.async {
-                    completion(false)
-                }
-            }
-        }
-    }
-
     /// Saves a new project to the Core Data context if possible, otherwise toggles the showingUnlockView Boolean.
     /// - Returns: Boolean indicating whether the project was successfully added or not.
     @discardableResult func addProject() -> Bool {
@@ -305,69 +231,30 @@ class DataController: ObservableObject {
         }
     }
 
-    /// Removes a reminder from a given project.
-    /// - Parameter project: The project to remove the reminder from.
-    func removeReminders(for project: Project) {
-        // Get the project ID.
-        let projectID = project.objectID.uriRepresentation().absoluteString
-
-        // The hub of UserNotifications framework responsible for reading and writing notifications.
-        let center = UNUserNotificationCenter.current()
-
-        // Remove pending notification requests for the project from the notification center.
-        center.removePendingNotificationRequests(withIdentifiers: [projectID])
-    }
-
-    /// Requests notification privileges from the user.
-    /// - Parameter completion: Handler function to send back any errors that arise during notification work.
-    private func requestNotifications(completion: @escaping (Bool) -> Void) {
-        // The hub of UserNotifications framework responsible for reading and writing notifications.
-        let center = UNUserNotificationCenter.current()
-
-        // Request permission to display alert and play a sound, then call completion handler.
-        center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
-            completion(granted)
-        }
-    }
-
-    /// Places a single notification for a given project.
-    /// - Parameters:
-    ///   - project: The project to place a notification for.
-    ///   - completion: Handler function to send back any errors that arise during notification work.
-    private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
-        // Dictate the content of the notification.
-        let content = UNMutableNotificationContent()
-        content.sound = .default
-        content.title = project.projectTitle
-
-        if let projectDetail = project.detail {
-            content.subtitle = projectDetail
-        }
-
-        // Define the calendar trigger of the notification - the circumstance under which it is shown.
-        let components = Calendar.current.dateComponents([.hour, .minute],
-                                                         from: project.reminderTime ?? Date())
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-
-        // Wrap the content and trigger up in a single notification with a unique ID.
-        let projectID = project.objectID.uriRepresentation().absoluteString
-        let request = UNNotificationRequest(
-            identifier: projectID,
-            content: content,
-            trigger: trigger
+    /// Constructs a fetch request to show a specified number of the highest priority, incomplete items from open
+    /// projects.
+    /// - Parameter count: The fetch limit for items.
+    /// - Returns: A fetch request for a given number of high priority, incomplete items from open projects.
+    func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
+        let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+        let openPredicate = NSPredicate(format: "completed = false")
+        let incompletePredicate = NSPredicate(format: "project.closed = false")
+        itemRequest.predicate = NSCompoundPredicate(
+            type: .and,
+            subpredicates: [
+                openPredicate,
+                incompletePredicate
+            ]
         )
+        itemRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority, ascending: false)]
+        itemRequest.fetchLimit = count
 
-        // Send notification request to iOS.
-        UNUserNotificationCenter.current().add(request) { error in
-            DispatchQueue.main.async {
-                if error == nil {
-                    // Notification successfully scheduled.
-                    completion(true)
-                } else {
-                    // Notification not scheduled.
-                    completion(false)
-                }
-            }
-        }
+        return itemRequest
+    }
+
+    /// Executes a given fetch request.
+    /// - Returns: The fetch request to execute.
+    func results<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
     }
 }
