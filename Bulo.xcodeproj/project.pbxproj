@@ -7,17 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		230083E8276E30B2008A71FA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E7276E30B2008A71FA /* WidgetKit.framework */; };
-		230083EA276E30B2008A71FA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E9276E30B2008A71FA /* SwiftUI.framework */; };
-		230083EF276E30B5008A71FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230083EE276E30B5008A71FA /* Assets.xcassets */; };
-		230083F3276E30B5008A71FA /* BuloWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 230083E6276E30B2008A71FA /* BuloWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		230083F8276E3175008A71FA /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83A271741E0006E1BDC /* Main.xcdatamodeld */; };
-		230083F9276E3179008A71FA /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83D27174468006E1BDC /* DataController.swift */; };
-		230083FA276E3189008A71FA /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
 		230083FC276E3227008A71FA /* DataController-Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230083FB276E3227008A71FA /* DataController-Reminders.swift */; };
 		230083FE276E32B5008A71FA /* DataController-Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230083FD276E32B5008A71FA /* DataController-Awards.swift */; };
-		23008400276E45F2008A71FA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE85D7272BC7B00092D8A2 /* Strings.swift */; };
-		23008402276E45FE008A71FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23B784572727D636007ABA29 /* Localizable.strings */; };
 		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
 		2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D79B27294270003472BA /* ProjectSummaryView.swift */; };
 		231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */; };
@@ -42,10 +33,6 @@
 		2396564F276BCCC7003BFFCF /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396564E276BCCC7003BFFCF /* PurchaseButton.swift */; };
 		23965651276BCF7D003BFFCF /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965650276BCF7D003BFFCF /* ProductView.swift */; };
 		23965653276BDE7A003BFFCF /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965652276BDE7A003BFFCF /* UnlockView.swift */; };
-		23A4E4A7276E4FF4002BB7A4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4A6276E4FF4002BB7A4 /* DataProvider.swift */; };
-		23A4E4A9276E5048002BB7A4 /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4A8276E5048002BB7A4 /* SimpleWidget.swift */; };
-		23A4E4AB276E5090002BB7A4 /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4AA276E5090002BB7A4 /* ComplexWidget.swift */; };
-		23A4E4AD276E5166002BB7A4 /* BuloWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4AC276E5166002BB7A4 /* BuloWidget.swift */; };
 		23A4E4AF276E51EB002BB7A4 /* DataController-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */; };
 		23ACEF1C276D283300EB5928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ACEF1B276D283300EB5928 /* AppDelegate.swift */; };
 		23ACEF1E276D284000EB5928 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ACEF1D276D284000EB5928 /* SceneDelegate.swift */; };
@@ -73,21 +60,11 @@
 		23D43B8B27345C2A0091B773 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D43B8A27345C2A0091B773 /* ProjectTests.swift */; };
 		23D898F5273A706900D16B9A /* BuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F4273A706900D16B9A /* BuloUITests.swift */; };
 		23D898F7273A706900D16B9A /* BuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D898F6273A706900D16B9A /* BuloUITestsLaunchTests.swift */; };
-		23E6CA25276E489E00377F07 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C74DE3271B0EA200E2E651 /* Colors.xcassets */; };
-		23E6CA26276E48AB00377F07 /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
-		23E6CA27276E48B200377F07 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
 		23EA1F2527479D3B006F6313 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA1F2427479D3B006F6313 /* HomeViewModel.swift */; };
 		23EA1F272747A77A006F6313 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA1F262747A77A006F6313 /* ItemRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		230083F1276E30B5008A71FA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 230083E5276E30B2008A71FA;
-			remoteInfo = BuloWidgetExtension;
-		};
 		2353F6B82739C68500E80748 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
@@ -118,7 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				230083F3276E30B5008A71FA /* BuloWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,11 +102,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		230083E6276E30B2008A71FA /* BuloWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuloWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		230083E7276E30B2008A71FA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		230083E9276E30B2008A71FA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		230083EE276E30B5008A71FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		230083F0276E30B5008A71FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230083FB276E3227008A71FA /* DataController-Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Reminders.swift"; sourceTree = "<group>"; };
 		230083FD276E32B5008A71FA /* DataController-Awards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Awards.swift"; sourceTree = "<group>"; };
 		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
@@ -162,10 +135,6 @@
 		2396564E276BCCC7003BFFCF /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
 		23965650276BCF7D003BFFCF /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		23965652276BDE7A003BFFCF /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
-		23A4E4A6276E4FF4002BB7A4 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
-		23A4E4A8276E5048002BB7A4 /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
-		23A4E4AA276E5090002BB7A4 /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
-		23A4E4AC276E5166002BB7A4 /* BuloWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloWidget.swift; sourceTree = "<group>"; };
 		23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-StoreKit.swift"; sourceTree = "<group>"; };
 		23ACEF1B276D283300EB5928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23ACEF1D276D284000EB5928 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,15 +172,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		230083E3276E30B2008A71FA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				230083EA276E30B2008A71FA /* SwiftUI.framework in Frameworks */,
-				230083E8276E30B2008A71FA /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2353F6B12739C68500E80748 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,19 +204,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230083EB276E30B2008A71FA /* BuloWidget */ = {
-			isa = PBXGroup;
-			children = (
-				23A4E4AC276E5166002BB7A4 /* BuloWidget.swift */,
-				23A4E4A6276E4FF4002BB7A4 /* DataProvider.swift */,
-				23A4E4A8276E5048002BB7A4 /* SimpleWidget.swift */,
-				23A4E4AA276E5090002BB7A4 /* ComplexWidget.swift */,
-				230083EE276E30B5008A71FA /* Assets.xcassets */,
-				230083F0276E30B5008A71FA /* Info.plist */,
-			);
-			path = BuloWidget;
-			sourceTree = "<group>";
-		};
 		2352800F2718B15200ACA356 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,7 +239,6 @@
 				23BE31172733BF4F0007AD41 /* BuloTests */,
 				2353F6B52739C68500E80748 /* BuloPerformanceTests */,
 				23D898F3273A706900D16B9A /* BuloUITests */,
-				230083EB276E30B2008A71FA /* BuloWidget */,
 				238AC82A2717412F006E1BDC /* Products */,
 				2352800F2718B15200ACA356 /* Frameworks */,
 			);
@@ -305,7 +251,6 @@
 				23BE31162733BF4F0007AD41 /* BuloTests.xctest */,
 				2353F6B42739C68500E80748 /* BuloPerformanceTests.xctest */,
 				23D898F2273A706900D16B9A /* BuloUITests.xctest */,
-				230083E6276E30B2008A71FA /* BuloWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -460,23 +405,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		230083E5276E30B2008A71FA /* BuloWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 230083F7276E30B5008A71FA /* Build configuration list for PBXNativeTarget "BuloWidgetExtension" */;
-			buildPhases = (
-				230083E2276E30B2008A71FA /* Sources */,
-				230083E3276E30B2008A71FA /* Frameworks */,
-				230083E4276E30B2008A71FA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BuloWidgetExtension;
-			productName = BuloWidgetExtension;
-			productReference = 230083E6276E30B2008A71FA /* BuloWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		2353F6B32739C68500E80748 /* BuloPerformanceTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2353F6BA2739C68500E80748 /* Build configuration list for PBXNativeTarget "BuloPerformanceTests" */;
@@ -508,7 +436,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				230083F2276E30B5008A71FA /* PBXTargetDependency */,
 			);
 			name = Bulo;
 			productName = Bulo;
@@ -561,9 +488,6 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					230083E5276E30B2008A71FA = {
-						CreatedOnToolsVersion = 13.2.1;
-					};
 					2353F6B32739C68500E80748 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 238AC8282717412F006E1BDC;
@@ -599,22 +523,11 @@
 				23BE31152733BF4F0007AD41 /* BuloTests */,
 				2353F6B32739C68500E80748 /* BuloPerformanceTests */,
 				23D898F1273A706900D16B9A /* BuloUITests */,
-				230083E5276E30B2008A71FA /* BuloWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		230083E4276E30B2008A71FA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23E6CA25276E489E00377F07 /* Colors.xcassets in Resources */,
-				230083EF276E30B5008A71FA /* Assets.xcassets in Resources */,
-				23008402276E45FE008A71FA /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2353F6B22739C68500E80748 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -675,23 +588,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		230083E2276E30B2008A71FA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23E6CA27276E48B200377F07 /* Sequence-Extensions.swift in Sources */,
-				23E6CA26276E48AB00377F07 /* Project-CoreDataExtensions.swift in Sources */,
-				23A4E4AB276E5090002BB7A4 /* ComplexWidget.swift in Sources */,
-				23A4E4AD276E5166002BB7A4 /* BuloWidget.swift in Sources */,
-				23A4E4A7276E4FF4002BB7A4 /* DataProvider.swift in Sources */,
-				230083F8276E3175008A71FA /* Main.xcdatamodeld in Sources */,
-				230083F9276E3179008A71FA /* DataController.swift in Sources */,
-				23008400276E45F2008A71FA /* Strings.swift in Sources */,
-				230083FA276E3189008A71FA /* Item-CoreDataExtensions.swift in Sources */,
-				23A4E4A9276E5048002BB7A4 /* SimpleWidget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2353F6B02739C68500E80748 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -769,11 +665,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		230083F2276E30B5008A71FA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 230083E5276E30B2008A71FA /* BuloWidgetExtension */;
-			targetProxy = 230083F1276E30B5008A71FA /* PBXContainerItemProxy */;
-		};
 		2353F6B92739C68500E80748 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 238AC8282717412F006E1BDC /* Bulo */;
@@ -822,64 +713,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		230083F5276E30B5008A71FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = BuloWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52R27K29BJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BuloWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.Bulo.BuloWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		230083F6276E30B5008A71FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = BuloWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52R27K29BJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BuloWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.Bulo.BuloWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		2353F6BB2739C68500E80748 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1047,7 +880,6 @@
 		238AC83827174130006E1BDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bulo/Configuration/Bulo.entitlements;
@@ -1080,7 +912,6 @@
 		238AC83927174130006E1BDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bulo/Configuration/Bulo.entitlements;
@@ -1203,15 +1034,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		230083F7276E30B5008A71FA /* Build configuration list for PBXNativeTarget "BuloWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				230083F5276E30B5008A71FA /* Debug */,
-				230083F6276E30B5008A71FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2353F6BA2739C68500E80748 /* Build configuration list for PBXNativeTarget "BuloPerformanceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
