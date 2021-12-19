@@ -34,6 +34,22 @@
 		23965651276BCF7D003BFFCF /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965650276BCF7D003BFFCF /* ProductView.swift */; };
 		23965653276BDE7A003BFFCF /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965652276BDE7A003BFFCF /* UnlockView.swift */; };
 		23A4E4AF276E51EB002BB7A4 /* DataController-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */; };
+		23A9CA18276F2CD400EE1A6D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E7276E30B2008A71FA /* WidgetKit.framework */; };
+		23A9CA19276F2CD400EE1A6D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E9276E30B2008A71FA /* SwiftUI.framework */; };
+		23A9CA1E276F2CD700EE1A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A9CA1D276F2CD700EE1A6D /* Assets.xcassets */; };
+		23A9CA22276F2CD700EE1A6D /* BuloWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 23A9CA17276F2CD400EE1A6D /* BuloWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		23A9CA28276F2DCF00EE1A6D /* BuloWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9CA27276F2DCF00EE1A6D /* BuloWidget.swift */; };
+		23A9CA2A276F2DEF00EE1A6D /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9CA29276F2DEF00EE1A6D /* ComplexWidget.swift */; };
+		23A9CA2C276F2E0700EE1A6D /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9CA2B276F2E0700EE1A6D /* DataProvider.swift */; };
+		23A9CA2E276F2E1900EE1A6D /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9CA2D276F2E1900EE1A6D /* SimpleWidget.swift */; };
+		23A9CA2F276F2E3700EE1A6D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83D27174468006E1BDC /* DataController.swift */; };
+		23A9CA30276F2E3F00EE1A6D /* Project-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */; };
+		23A9CA31276F2E4100EE1A6D /* Item-CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */; };
+		23A9CA32276F2E4700EE1A6D /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
+		23A9CA33276F2E5000EE1A6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23B784572727D636007ABA29 /* Localizable.strings */; };
+		23A9CA34276F2E5200EE1A6D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE85D7272BC7B00092D8A2 /* Strings.swift */; };
+		23A9CA35276F2EBB00EE1A6D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 238AC83A271741E0006E1BDC /* Main.xcdatamodeld */; };
+		23A9CA37276F30DC00EE1A6D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C74DE3271B0EA200E2E651 /* Colors.xcassets */; };
 		23ACEF1C276D283300EB5928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ACEF1B276D283300EB5928 /* AppDelegate.swift */; };
 		23ACEF1E276D284000EB5928 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ACEF1D276D284000EB5928 /* SceneDelegate.swift */; };
 		23B7680B2721476800B1A747 /* Color-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7680A2721476800B1A747 /* Color-Extensions.swift */; };
@@ -72,6 +88,13 @@
 			remoteGlobalIDString = 238AC8282717412F006E1BDC;
 			remoteInfo = Bulo;
 		};
+		23A9CA20276F2CD700EE1A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23A9CA16276F2CD400EE1A6D;
+			remoteInfo = BuloWidgetExtension;
+		};
 		23BE311A2733BF4F0007AD41 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 238AC8212717412F006E1BDC /* Project object */;
@@ -95,6 +118,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				23A9CA22276F2CD700EE1A6D /* BuloWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +160,14 @@
 		23965650276BCF7D003BFFCF /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		23965652276BDE7A003BFFCF /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-StoreKit.swift"; sourceTree = "<group>"; };
+		23A9CA17276F2CD400EE1A6D /* BuloWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuloWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A9CA1D276F2CD700EE1A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23A9CA1F276F2CD700EE1A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23A9CA26276F2CE900EE1A6D /* BuloWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuloWidgetExtension.entitlements; sourceTree = "<group>"; };
+		23A9CA27276F2DCF00EE1A6D /* BuloWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloWidget.swift; sourceTree = "<group>"; };
+		23A9CA29276F2DEF00EE1A6D /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
+		23A9CA2B276F2E0700EE1A6D /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		23A9CA2D276F2E1900EE1A6D /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		23ACEF1B276D283300EB5928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23ACEF1D276D284000EB5928 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		23B7680A2721476800B1A747 /* Color-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extensions.swift"; sourceTree = "<group>"; };
@@ -184,6 +216,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				235280112718B15200ACA356 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23A9CA14276F2CD400EE1A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23A9CA19276F2CD400EE1A6D /* SwiftUI.framework in Frameworks */,
+				23A9CA18276F2CD400EE1A6D /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +280,7 @@
 				23BE31172733BF4F0007AD41 /* BuloTests */,
 				2353F6B52739C68500E80748 /* BuloPerformanceTests */,
 				23D898F3273A706900D16B9A /* BuloUITests */,
+				23A9CA1A276F2CD400EE1A6D /* BuloWidget */,
 				238AC82A2717412F006E1BDC /* Products */,
 				2352800F2718B15200ACA356 /* Frameworks */,
 			);
@@ -251,6 +293,7 @@
 				23BE31162733BF4F0007AD41 /* BuloTests.xctest */,
 				2353F6B42739C68500E80748 /* BuloPerformanceTests.xctest */,
 				23D898F2273A706900D16B9A /* BuloUITests.xctest */,
+				23A9CA17276F2CD400EE1A6D /* BuloWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -291,6 +334,20 @@
 				2396564E276BCCC7003BFFCF /* PurchaseButton.swift */,
 			);
 			path = Unlock;
+			sourceTree = "<group>";
+		};
+		23A9CA1A276F2CD400EE1A6D /* BuloWidget */ = {
+			isa = PBXGroup;
+			children = (
+				23A9CA27276F2DCF00EE1A6D /* BuloWidget.swift */,
+				23A9CA29276F2DEF00EE1A6D /* ComplexWidget.swift */,
+				23A9CA2B276F2E0700EE1A6D /* DataProvider.swift */,
+				23A9CA2D276F2E1900EE1A6D /* SimpleWidget.swift */,
+				23A9CA26276F2CE900EE1A6D /* BuloWidgetExtension.entitlements */,
+				23A9CA1D276F2CD700EE1A6D /* Assets.xcassets */,
+				23A9CA1F276F2CD700EE1A6D /* Info.plist */,
+			);
+			path = BuloWidget;
 			sourceTree = "<group>";
 		};
 		23BE31172733BF4F0007AD41 /* BuloTests */ = {
@@ -436,11 +493,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				23A9CA21276F2CD700EE1A6D /* PBXTargetDependency */,
 			);
 			name = Bulo;
 			productName = Bulo;
 			productReference = 238AC8292717412F006E1BDC /* Bulo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		23A9CA16276F2CD400EE1A6D /* BuloWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23A9CA25276F2CD700EE1A6D /* Build configuration list for PBXNativeTarget "BuloWidgetExtension" */;
+			buildPhases = (
+				23A9CA13276F2CD400EE1A6D /* Sources */,
+				23A9CA14276F2CD400EE1A6D /* Frameworks */,
+				23A9CA15276F2CD400EE1A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BuloWidgetExtension;
+			productName = BuloWidgetExtension;
+			productReference = 23A9CA17276F2CD400EE1A6D /* BuloWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		23BE31152733BF4F0007AD41 /* BuloTests */ = {
 			isa = PBXNativeTarget;
@@ -495,6 +570,10 @@
 					238AC8282717412F006E1BDC = {
 						CreatedOnToolsVersion = 13.0;
 					};
+					23A9CA16276F2CD400EE1A6D = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+					};
 					23BE31152733BF4F0007AD41 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 238AC8282717412F006E1BDC;
@@ -523,6 +602,7 @@
 				23BE31152733BF4F0007AD41 /* BuloTests */,
 				2353F6B32739C68500E80748 /* BuloPerformanceTests */,
 				23D898F1273A706900D16B9A /* BuloUITests */,
+				23A9CA16276F2CD400EE1A6D /* BuloWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -545,6 +625,16 @@
 				238AC83427174130006E1BDC /* Preview Assets.xcassets in Resources */,
 				238AC83127174130006E1BDC /* Assets.xcassets in Resources */,
 				23B784592727DBCD007ABA29 /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23A9CA15276F2CD400EE1A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23A9CA37276F30DC00EE1A6D /* Colors.xcassets in Resources */,
+				23A9CA1E276F2CD700EE1A6D /* Assets.xcassets in Resources */,
+				23A9CA33276F2E5000EE1A6D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +730,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23A9CA13276F2CD400EE1A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23A9CA30276F2E3F00EE1A6D /* Project-CoreDataExtensions.swift in Sources */,
+				23A9CA34276F2E5200EE1A6D /* Strings.swift in Sources */,
+				23A9CA2F276F2E3700EE1A6D /* DataController.swift in Sources */,
+				23A9CA32276F2E4700EE1A6D /* Sequence-Extensions.swift in Sources */,
+				23A9CA35276F2EBB00EE1A6D /* Main.xcdatamodeld in Sources */,
+				23A9CA31276F2E4100EE1A6D /* Item-CoreDataExtensions.swift in Sources */,
+				23A9CA2C276F2E0700EE1A6D /* DataProvider.swift in Sources */,
+				23A9CA2A276F2DEF00EE1A6D /* ComplexWidget.swift in Sources */,
+				23A9CA28276F2DCF00EE1A6D /* BuloWidget.swift in Sources */,
+				23A9CA2E276F2E1900EE1A6D /* SimpleWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23BE31122733BF4F0007AD41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -669,6 +776,11 @@
 			isa = PBXTargetDependency;
 			target = 238AC8282717412F006E1BDC /* Bulo */;
 			targetProxy = 2353F6B82739C68500E80748 /* PBXContainerItemProxy */;
+		};
+		23A9CA21276F2CD700EE1A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23A9CA16276F2CD400EE1A6D /* BuloWidgetExtension */;
+			targetProxy = 23A9CA20276F2CD700EE1A6D /* PBXContainerItemProxy */;
 		};
 		23BE311B2733BF4F0007AD41 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -880,6 +992,7 @@
 		238AC83827174130006E1BDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bulo/Configuration/Bulo.entitlements;
@@ -912,6 +1025,7 @@
 		238AC83927174130006E1BDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bulo/Configuration/Bulo.entitlements;
@@ -935,6 +1049,67 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.Bulo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		23A9CA23276F2CD700EE1A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BuloWidget/BuloWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52R27K29BJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BuloWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.Bulo.BuloWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23A9CA24276F2CD700EE1A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BuloWidget/BuloWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52R27K29BJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BuloWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.theanteambulo.Bulo.BuloWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1057,6 +1232,15 @@
 			buildConfigurations = (
 				238AC83827174130006E1BDC /* Debug */,
 				238AC83927174130006E1BDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23A9CA25276F2CD700EE1A6D /* Build configuration list for PBXNativeTarget "BuloWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23A9CA23276F2CD700EE1A6D /* Debug */,
+				23A9CA24276F2CD700EE1A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
