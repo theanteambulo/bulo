@@ -87,6 +87,8 @@ class DataController: ObservableObject {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
 
+            self.container.viewContext.automaticallyMergesChangesFromParent = true
+
             #if DEBUG
             if CommandLine.arguments.contains("enable-testing") {
                 self.deleteAll()
@@ -152,15 +154,23 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
     }
 
+    private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+        if let delete = try? container.viewContext.execute(batchDeleteRequest) as? NSBatchDeleteResult {
+            let changes = [NSDeletedObjectsKey: delete.result as? [NSManagedObjectID] ?? []]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
+        }
+    }
+
     /// Batch deletes all projects and items from the Core Data context.
     func deleteAll() {
         let fetchRequestItems: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
-        let batchDeleteRequestItems = NSBatchDeleteRequest(fetchRequest: fetchRequestItems)
-        _ = try? container.viewContext.execute(batchDeleteRequestItems)
+        delete(fetchRequestItems)
 
         let fetchRequestProjects: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
-        let batchDeleteRequestProjects = NSBatchDeleteRequest(fetchRequest: fetchRequestProjects)
-        _ = try? container.viewContext.execute(batchDeleteRequestProjects)
+        delete(fetchRequestProjects)
     }
 
     /// Counts the number of objects in the Core Data context for a given FetchRequest, without actually having to

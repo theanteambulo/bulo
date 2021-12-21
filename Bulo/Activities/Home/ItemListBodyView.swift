@@ -11,7 +11,7 @@ import SwiftUI
 /// and detail text if applicable.
 struct ItemListBodyView: View {
     /// The item used to construct this view.
-    let item: Item
+    @ObservedObject var item: Item
 
     var body: some View {
         HStack(spacing: 20) {
@@ -23,14 +23,16 @@ struct ItemListBodyView: View {
 
             VStack(alignment: .leading) {
                 Text(item.itemTitle)
-                    .font(.title3)
-                    .foregroundColor(.primary)
+                    .font(.headline)
                     .frame(maxWidth: .infinity,
                            alignment: .leading)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.leading)
 
                 if item.itemDetail.isEmpty == false {
                     Text(item.itemDetail)
                         .foregroundColor(.secondary)
+                        .multilineTextAlignment(.leading)
                 }
             }
         }

@@ -12,7 +12,7 @@ struct ItemListView: View {
     /// The header text for the view.
     let title: LocalizedStringKey
     /// The list of items to display.
-    let items: ArraySlice<Item>
+    @Binding var items: ArraySlice<Item>
 
     var body: some View {
         if items.isEmpty {
@@ -31,9 +31,3 @@ struct ItemListView: View {
         }
     }
 }
-
-// struct ItemListView_Previews: PreviewProvider {
-//     static var previews: some View {
-//         ItemListView()
-//     }
-// }
