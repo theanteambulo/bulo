@@ -11,6 +11,11 @@
 		230083FE276E32B5008A71FA /* DataController-Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230083FD276E32B5008A71FA /* DataController-Awards.swift */; };
 		2301D79A272940EF003472BA /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D799272940EF003472BA /* ItemListView.swift */; };
 		2301D79C27294270003472BA /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301D79B27294270003472BA /* ProjectSummaryView.swift */; };
+		231D2646277367C100205C1A /* SharedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D2645277367C100205C1A /* SharedProject.swift */; };
+		231D26482773686100205C1A /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D26472773686100205C1A /* SharedItem.swift */; };
+		231D264A2773691D00205C1A /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D26492773691D00205C1A /* LoadStates.swift */; };
+		231D264D277369B400205C1A /* SharedProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D264C277369B400205C1A /* SharedProjectsView.swift */; };
+		231D264F27737FA100205C1A /* SharedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D264E27737FA100205C1A /* SharedItemsView.swift */; };
 		231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */; };
 		232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F406B271EAF66006505E4 /* Sequence-Extensions.swift */; };
 		235280112718B15200ACA356 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235280102718B15200ACA356 /* CloudKit.framework */; };
@@ -132,6 +137,11 @@
 		230083FD276E32B5008A71FA /* DataController-Awards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Awards.swift"; sourceTree = "<group>"; };
 		2301D799272940EF003472BA /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		2301D79B27294270003472BA /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
+		231D2645277367C100205C1A /* SharedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProject.swift; sourceTree = "<group>"; };
+		231D26472773686100205C1A /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
+		231D26492773691D00205C1A /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
+		231D264C277369B400205C1A /* SharedProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProjectsView.swift; sourceTree = "<group>"; };
+		231D264E27737FA100205C1A /* SharedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItemsView.swift; sourceTree = "<group>"; };
 		231EBF4C2746F6910035D666 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		232F406B271EAF66006505E4 /* Sequence-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Extensions.swift"; sourceTree = "<group>"; };
 		2352800E2718B0ED00ACA356 /* Bulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bulo.entitlements; sourceTree = "<group>"; };
@@ -245,6 +255,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		231D264B2773696100205C1A /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				231D2645277367C100205C1A /* SharedProject.swift */,
+				231D26472773686100205C1A /* SharedItem.swift */,
+				231D26492773691D00205C1A /* LoadStates.swift */,
+				231D264C277369B400205C1A /* SharedProjectsView.swift */,
+				231D264E27737FA100205C1A /* SharedItemsView.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
 		2352800F2718B15200ACA356 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +431,7 @@
 				23D07A592731385B003552F7 /* Projects */,
 				23D07A5A27313861003552F7 /* Awards */,
 				23965654276BE40E003BFFCF /* Unlock */,
+				231D264B2773696100205C1A /* Community */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -698,13 +721,16 @@
 				232F406C271EAF66006505E4 /* Sequence-Extensions.swift in Sources */,
 				23EA1F2527479D3B006F6313 /* HomeViewModel.swift in Sources */,
 				23BC8833272007AC0091EF80 /* AwardsView.swift in Sources */,
+				231D264F27737FA100205C1A /* SharedItemsView.swift in Sources */,
 				235280152718B3E700ACA356 /* ProjectsView.swift in Sources */,
 				23ACEF1C276D283300EB5928 /* AppDelegate.swift in Sources */,
 				23C74DE2271B0BD800E2E651 /* ProjectHeaderView.swift in Sources */,
 				238AC83C271741E0006E1BDC /* Main.xcdatamodeld in Sources */,
 				23BE194427195E3800040587 /* Item-CoreDataExtensions.swift in Sources */,
+				231D2646277367C100205C1A /* SharedProject.swift in Sources */,
 				23A4E4AF276E51EB002BB7A4 /* DataController-StoreKit.swift in Sources */,
 				23965651276BCF7D003BFFCF /* ProductView.swift in Sources */,
+				231D264D277369B400205C1A /* SharedProjectsView.swift in Sources */,
 				23C74DE6271B0FBB00E2E651 /* EditProjectView.swift in Sources */,
 				23EA1F272747A77A006F6313 /* ItemRowViewModel.swift in Sources */,
 				2396564D276BCB5A003BFFCF /* SKProductExtension.swift in Sources */,
@@ -719,9 +745,11 @@
 				2301D79A272940EF003472BA /* ItemListView.swift in Sources */,
 				230083FE276E32B5008A71FA /* DataController-Awards.swift in Sources */,
 				2396564A2769D3FE003BFFCF /* UnlockManager.swift in Sources */,
+				231D26482773686100205C1A /* SharedItem.swift in Sources */,
 				238AC82D2717412F006E1BDC /* BuloApp.swift in Sources */,
 				230083FC276E3227008A71FA /* DataController-Reminders.swift in Sources */,
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
+				231D264A2773691D00205C1A /* LoadStates.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
 				23ACEF1E276D284000EB5928 /* SceneDelegate.swift in Sources */,
 				23D07A5C273138C7003552F7 /* ItemListBodyView.swift in Sources */,
