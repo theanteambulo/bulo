@@ -5,6 +5,7 @@
 //  Created by Jake King on 16/10/2021.
 //
 
+import CloudKit
 import CoreHaptics
 import SwiftUI
 
@@ -51,6 +52,33 @@ struct EditProjectView: View {
         } else {
             _reminderTime = State(wrappedValue: Date())
             _remindMe = State(wrappedValue: false)
+        }
+    }
+
+    var uploadToiCloudToolbarItem: some ToolbarContent {
+        ToolbarItem {
+            Button {
+                // Tell CloudKit the records we want to modify.
+                let records = project.prepareCloudRecords()
+                let operation = CKModifyRecordsOperation(recordsToSave: records,
+                                                         recordIDsToDelete: nil)
+
+                // Write out all data, overwriting everything no matter what.
+                operation.savePolicy = .allKeys
+
+                // Completion closure to run when all records are saved. Passed the records made, records deleted and
+                // any errors that occurred.
+                operation.modifyRecordsCompletionBlock = { _, _, error in
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
+
+                // Send data to iCloud.
+                CKContainer.default().publicCloudDatabase.add(operation)
+            } label: {
+                Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+            }
         }
     }
 
@@ -108,6 +136,9 @@ struct EditProjectView: View {
             }
         }
         .navigationTitle(Text(.editProject))
+        .toolbar {
+            uploadToiCloudToolbarItem
+        }
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $displayDeleteConfirmationAlert) {
             Alert(title: Text(.deleteProjectAlertTitle),

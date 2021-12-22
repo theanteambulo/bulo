@@ -5,6 +5,7 @@
 //  Created by Jake King on 15/10/2021.
 //
 
+import CloudKit
 import Foundation
 import SwiftUI
 
@@ -113,5 +114,39 @@ extension Project {
         case .optimized:
             return projectItemsDefaultSorted
         }
+    }
+
+    /// Prepares an array of CKRecords corresponding to Core Data objects.
+    /// - Returns: An array of CKRecords.
+    func prepareCloudRecords() -> [CKRecord] {
+        // Core Data objectID us used for the CloudKit ID as this is a stable, unique identifier and using the Core
+        // Data identifier allows linking of data later.
+        let parentName = objectID.uriRepresentation().absoluteString
+        let parentID = CKRecord.ID(recordName: parentName)
+        let parent = CKRecord(recordType: "Project", recordID: parentID)
+
+        // Write data using dictionary syntax.
+        parent["title"] = projectTitle
+        parent["detail"] = projectDetail
+        parent["owner"] = "theanteambulo"
+        parent["closed"] = closed
+
+        // Map the project's items and attach their data to each CKRecord.
+        var records = projectItemsDefaultSorted.map { item -> CKRecord in
+            let childName = item.objectID.uriRepresentation().absoluteString
+            let childID = CKRecord.ID(recordName: childName)
+            let child = CKRecord(recordType: "Item", recordID: childID)
+
+            child["title"] = item.itemTitle
+            child["detail"] = item.itemDetail
+            child["completed"] = item.completed
+            // Every Item knows the Project which owns it. When a Project is deleted, Item objects owned by the Project
+            // should also be deleted.
+            child["project"] = CKRecord.Reference(recordID: parentID, action: .deleteSelf)
+            return child
+        }
+
+        records.append(parent)
+        return records
     }
 }
