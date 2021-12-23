@@ -23,6 +23,10 @@ struct BuloApp: App {
 
         _dataController = StateObject(wrappedValue: dataController)
         _unlockManager = StateObject(wrappedValue: unlockManager)
+
+        #if targetEnvironment(simulator)
+        UserDefaults.standard.set("theanteambulo", forKey: "username")
+        #endif
     }
 
     var body: some Scene {

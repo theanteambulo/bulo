@@ -68,6 +68,7 @@
 		23BE31192733BF4F0007AD41 /* BuloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE31182733BF4F0007AD41 /* BuloTests.swift */; };
 		23BE31202733C0FA0007AD41 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE311F2733C0FA0007AD41 /* AssetTests.swift */; };
 		23C14B3527351B73001A6F28 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C14B3427351B73001A6F28 /* DevelopmentTests.swift */; };
+		23C425712774743900CCC7BE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C425702774743900CCC7BE /* SignInView.swift */; };
 		23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDB271B024C00E2E651 /* EditItemView.swift */; };
 		23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDD271B062A00E2E651 /* ItemRowView.swift */; };
 		23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */; };
@@ -194,6 +195,7 @@
 		23BE31182733BF4F0007AD41 /* BuloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuloTests.swift; sourceTree = "<group>"; };
 		23BE311F2733C0FA0007AD41 /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		23C14B3427351B73001A6F28 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
+		23C425702774743900CCC7BE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		23C74DDB271B024C00E2E651 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		23C74DDD271B062A00E2E651 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		23C74DDF271B081D00E2E651 /* Binding-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-Extensions.swift"; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				231D26492773691D00205C1A /* LoadStates.swift */,
 				231D264C277369B400205C1A /* SharedProjectsView.swift */,
 				231D264E27737FA100205C1A /* SharedItemsView.swift */,
+				23C425702774743900CCC7BE /* SignInView.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				230083FC276E3227008A71FA /* DataController-Reminders.swift in Sources */,
 				23C74DE0271B081D00E2E651 /* Binding-Extensions.swift in Sources */,
 				231D264A2773691D00205C1A /* LoadStates.swift in Sources */,
+				23C425712774743900CCC7BE /* SignInView.swift in Sources */,
 				23C74DDC271B024C00E2E651 /* EditItemView.swift in Sources */,
 				23ACEF1E276D284000EB5928 /* SceneDelegate.swift in Sources */,
 				23D07A5C273138C7003552F7 /* ItemListBodyView.swift in Sources */,

@@ -117,8 +117,9 @@ extension Project {
     }
 
     /// Prepares an array of CKRecords corresponding to Core Data objects.
+    /// - Parameter owner: The username of the user.
     /// - Returns: An array of CKRecords.
-    func prepareCloudRecords() -> [CKRecord] {
+    func prepareCloudRecords(owner: String) -> [CKRecord] {
         // Core Data objectID us used for the CloudKit ID as this is a stable, unique identifier and using the Core
         // Data identifier allows linking of data later.
         let parentName = objectID.uriRepresentation().absoluteString
@@ -128,7 +129,7 @@ extension Project {
         // Write data using dictionary syntax.
         parent["title"] = projectTitle
         parent["detail"] = projectDetail
-        parent["owner"] = "theanteambulo"
+        parent["owner"] = owner
         parent["closed"] = closed
 
         // Map the project's items and attach their data to each CKRecord.

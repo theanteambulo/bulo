@@ -17,6 +17,9 @@ struct EditProjectView: View {
         GridItem(.adaptive(minimum: 44))
     ]
 
+    /// Checks for a valid username.
+    @AppStorage("username") var username: String?
+
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var dataController: DataController
 
@@ -36,6 +39,8 @@ struct EditProjectView: View {
     @State private var displayDeleteConfirmationAlert = false
     /// An instance of CHHapticEngine responsible for spinning up the Taptic Engine.
     @State private var hapticEngine = try? CHHapticEngine()
+    /// A Boolean to indicate whether or not the Sign in with Apple Sheet is being displayed or not.
+    @State private var showingSignInWithAppleSheet = false
 
     // When we have multiple @StateObject properties that rely on each other, they must get created
     // in their own customer initialiser.
@@ -57,26 +62,7 @@ struct EditProjectView: View {
 
     var uploadToiCloudToolbarItem: some ToolbarContent {
         ToolbarItem {
-            Button {
-                // Tell CloudKit the records we want to modify.
-                let records = project.prepareCloudRecords()
-                let operation = CKModifyRecordsOperation(recordsToSave: records,
-                                                         recordIDsToDelete: nil)
-
-                // Write out all data, overwriting everything no matter what.
-                operation.savePolicy = .allKeys
-
-                // Completion closure to run when all records are saved. Passed the records made, records deleted and
-                // any errors that occurred.
-                operation.modifyRecordsCompletionBlock = { _, _, error in
-                    if let error = error {
-                        print("Error: \(error.localizedDescription)")
-                    }
-                }
-
-                // Send data to iCloud.
-                CKContainer.default().publicCloudDatabase.add(operation)
-            } label: {
+            Button(action: uploadToiCloud) {
                 Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
             }
         }
@@ -147,6 +133,8 @@ struct EditProjectView: View {
                                               action: delete),
                   secondaryButton: .cancel())
         }
+        .sheet(isPresented: $showingSignInWithAppleSheet,
+               content: SignInView.init)
     }
 
     /// Synchronize the @State properties of EditProjectView with their Core Data equivalents in whichever Project
@@ -266,6 +254,31 @@ struct EditProjectView: View {
                 : .isButton
         )
         .accessibilityLabel(LocalizedStringKey(buttonColor))
+    }
+
+    func uploadToiCloud() {
+        if let username = username {
+            // Tell CloudKit the records we want to modify.
+            let records = project.prepareCloudRecords(owner: username)
+            let operation = CKModifyRecordsOperation(recordsToSave: records,
+                                                     recordIDsToDelete: nil)
+
+            // Write out all data, overwriting everything no matter what.
+            operation.savePolicy = .allKeys
+
+            // Completion closure to run when all records are saved. Passed the records made, records deleted and
+            // any errors that occurred.
+            operation.modifyRecordsCompletionBlock = { _, _, error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+
+            // Send data to iCloud.
+            CKContainer.default().publicCloudDatabase.add(operation)
+        } else {
+            showingSignInWithAppleSheet = true
+        }
     }
 }
 
