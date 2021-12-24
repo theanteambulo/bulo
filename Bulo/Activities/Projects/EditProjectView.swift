@@ -41,6 +41,15 @@ struct EditProjectView: View {
     @State private var hapticEngine = try? CHHapticEngine()
     /// A Boolean to indicate whether or not the Sign in with Apple Sheet is being displayed or not.
     @State private var showingSignInWithAppleSheet = false
+    /// Tracks the cloud status of the project.
+    @State private var cloudStatus = CloudStatus.checking
+    /// A CloudError that may have occurred.
+    @State private var cloudError: CloudError?
+
+    /// Possible states the UI could be in while checking the iCloud status of the project.
+    enum CloudStatus {
+        case checking, exists, absent
+    }
 
     // When we have multiple @StateObject properties that rely on each other, they must get created
     // in their own customer initialiser.
@@ -62,8 +71,17 @@ struct EditProjectView: View {
 
     var uploadToiCloudToolbarItem: some ToolbarContent {
         ToolbarItem {
-            Button(action: uploadToiCloud) {
-                Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+            switch cloudStatus {
+            case .checking:
+                ProgressView()
+            case .exists:
+                Button(action: removeFromiCloud) {
+                    Label("Remove from iCloud", systemImage: "icloud.slash")
+                }
+            case .absent:
+                Button(action: uploadToiCloud) {
+                    Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
+                }
             }
         }
     }
@@ -125,6 +143,7 @@ struct EditProjectView: View {
         .toolbar {
             uploadToiCloudToolbarItem
         }
+        .onAppear(perform: updateCloudStatus)
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $displayDeleteConfirmationAlert) {
             Alert(title: Text(.deleteProjectAlertTitle),
@@ -132,6 +151,12 @@ struct EditProjectView: View {
                   primaryButton: .destructive(Text(.deleteCallToAction),
                                               action: delete),
                   secondaryButton: .cancel())
+        }
+        .alert(item: $cloudError) { error in
+            Alert(
+                title: Text("There was an error"),
+                message: Text(error.message)
+            )
         }
         .sheet(isPresented: $showingSignInWithAppleSheet,
                content: SignInView.init)
@@ -158,6 +183,17 @@ struct EditProjectView: View {
         } else {
             project.reminderTime = nil
             dataController.removeReminders(for: project)
+        }
+    }
+
+    /// Updates the cloud status property of the view based on whether the project exists in iCloud or not.
+    func updateCloudStatus() {
+        project.checkCloudStatus { exists in
+            if exists {
+                cloudStatus = .exists
+            } else {
+                cloudStatus = .absent
+            }
         }
     }
 
@@ -256,6 +292,7 @@ struct EditProjectView: View {
         .accessibilityLabel(LocalizedStringKey(buttonColor))
     }
 
+    /// Uploads the project to iCloud.
     func uploadToiCloud() {
         if let username = username {
             // Tell CloudKit the records we want to modify.
@@ -266,19 +303,49 @@ struct EditProjectView: View {
             // Write out all data, overwriting everything no matter what.
             operation.savePolicy = .allKeys
 
-            // Completion closure to run when all records are saved. Passed the records made, records deleted and
-            // any errors that occurred.
+            // Completion closure to run when all records are saved. Ignore records made, deleted and read out errors.
             operation.modifyRecordsCompletionBlock = { _, _, error in
                 if let error = error {
-                    print("Error: \(error.localizedDescription)")
+                    cloudError = error.getCloudKitError()
                 }
+
+                updateCloudStatus()
             }
 
-            // Send data to iCloud.
+            // To display some loading UI.
+            cloudStatus = .checking
+
+            // Send operation to iCloud.
             CKContainer.default().publicCloudDatabase.add(operation)
         } else {
             showingSignInWithAppleSheet = true
         }
+    }
+
+    /// Removes the project from iCloud.
+    func removeFromiCloud() {
+        // Get the ID of the current project.
+        let name = project.objectID.uriRepresentation().absoluteString
+        let id = CKRecord.ID(recordName: name)
+
+        // Tell CloudKit this is the ID we want to remove.
+        let operation = CKModifyRecordsOperation(recordsToSave: nil,
+                                                 recordIDsToDelete: [id])
+
+        // Ignore the records saved, deleted and any errors, just update cloudStatus.
+        operation.modifyRecordsCompletionBlock = { _, _, error in
+            if let error = error {
+                cloudError = error.getCloudKitError()
+            }
+
+            updateCloudStatus()
+        }
+
+        // To display some loading UI.
+        cloudStatus = .checking
+
+        // Send operation to iCloud.
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
 }
 

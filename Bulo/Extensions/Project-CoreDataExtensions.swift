@@ -150,4 +150,30 @@ extension Project {
         records.append(parent)
         return records
     }
+
+    /// Checks whether a project exists in iCloud or not.
+    /// - Parameter completion: Completion closure to run when cloud status of the project has been determined.
+    func checkCloudStatus(_ completion: @escaping (Bool) -> Void) {
+        // Find all records which match the project ID.
+        let name = objectID.uriRepresentation().absoluteString
+        let id = CKRecord.ID(recordName: name)
+        let operation = CKFetchRecordsOperation(recordIDs: [id])
+
+        // Get the ID property back for all matching records.
+        operation.desiredKeys = ["id"]
+
+        // Closure to run when all records fetched.
+        operation.fetchRecordsCompletionBlock = { records, _ in
+            if let records = records {
+                // Number of records returned should be exactly one.
+                completion(records.count == 1)
+            } else {
+                // If not exactly one, we assume the record does not exist.
+                completion(false)
+            }
+        }
+
+        // Send operation to iCloud.
+        CKContainer.default().publicCloudDatabase.add(operation)
+    }
 }

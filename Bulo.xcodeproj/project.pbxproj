@@ -40,6 +40,8 @@
 		23965653276BDE7A003BFFCF /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23965652276BDE7A003BFFCF /* UnlockView.swift */; };
 		23A4E4AF276E51EB002BB7A4 /* DataController-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */; };
 		23A7FBD82775C48100D6BE7E /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7FBD72775C48100D6BE7E /* ChatMessage.swift */; };
+		23A7FBDA2775FF6A00D6BE7E /* Error-CloudKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7FBD92775FF6A00D6BE7E /* Error-CloudKitExtensions.swift */; };
+		23A7FBDC2776049D00D6BE7E /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7FBDB2776049D00D6BE7E /* CloudError.swift */; };
 		23A9CA18276F2CD400EE1A6D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E7276E30B2008A71FA /* WidgetKit.framework */; };
 		23A9CA19276F2CD400EE1A6D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230083E9276E30B2008A71FA /* SwiftUI.framework */; };
 		23A9CA1E276F2CD700EE1A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A9CA1D276F2CD700EE1A6D /* Assets.xcassets */; };
@@ -172,6 +174,8 @@
 		23965652276BDE7A003BFFCF /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		23A4E4AE276E51EB002BB7A4 /* DataController-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-StoreKit.swift"; sourceTree = "<group>"; };
 		23A7FBD72775C48100D6BE7E /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		23A7FBD92775FF6A00D6BE7E /* Error-CloudKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKitExtensions.swift"; sourceTree = "<group>"; };
+		23A7FBDB2776049D00D6BE7E /* CloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudError.swift; sourceTree = "<group>"; };
 		23A9CA17276F2CD400EE1A6D /* BuloWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BuloWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A9CA1D276F2CD700EE1A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23A9CA1F276F2CD700EE1A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 				23BE194327195E3800040587 /* Item-CoreDataExtensions.swift */,
 				23BE194527195E5000040587 /* Project-CoreDataExtensions.swift */,
 				2396564C276BCB5A003BFFCF /* SKProductExtension.swift */,
+				23A7FBD92775FF6A00D6BE7E /* Error-CloudKitExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				23D07A5A27313861003552F7 /* Awards */,
 				23965654276BE40E003BFFCF /* Unlock */,
 				231D264B2773696100205C1A /* Community */,
+				23A7FBDB2776049D00D6BE7E /* CloudError.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -737,6 +743,7 @@
 				23C74DE6271B0FBB00E2E651 /* EditProjectView.swift in Sources */,
 				23EA1F272747A77A006F6313 /* ItemRowViewModel.swift in Sources */,
 				2396564D276BCB5A003BFFCF /* SKProductExtension.swift in Sources */,
+				23A7FBDC2776049D00D6BE7E /* CloudError.swift in Sources */,
 				23BC8831272006960091EF80 /* Award.swift in Sources */,
 				238AC83E27174468006E1BDC /* DataController.swift in Sources */,
 				23C74DDE271B062A00E2E651 /* ItemRowView.swift in Sources */,
@@ -746,6 +753,7 @@
 				235280132718B2E700ACA356 /* HomeView.swift in Sources */,
 				231EBF4D2746F6910035D666 /* ProjectsViewModel.swift in Sources */,
 				2301D79A272940EF003472BA /* ItemListView.swift in Sources */,
+				23A7FBDA2775FF6A00D6BE7E /* Error-CloudKitExtensions.swift in Sources */,
 				230083FE276E32B5008A71FA /* DataController-Awards.swift in Sources */,
 				2396564A2769D3FE003BFFCF /* UnlockManager.swift in Sources */,
 				231D26482773686100205C1A /* SharedItem.swift in Sources */,
@@ -1101,7 +1109,7 @@
 				INFOPLIST_FILE = BuloWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1132,7 +1140,7 @@
 				INFOPLIST_FILE = BuloWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuloWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

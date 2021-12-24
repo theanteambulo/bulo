@@ -26,6 +26,8 @@ struct SharedItemsView: View {
     @State private var showingSignInWithAppleSheet = false
     /// The text the user has currently typed.
     @State private var newChatText = ""
+    /// A CloudError that may have occurred.
+    @State private var cloudError: CloudError?
 
     /// The view which allows users to write comments on a project.
     @ViewBuilder var messagesFooter: some View {
@@ -104,6 +106,12 @@ struct SharedItemsView: View {
             fetchSharedItems()
             fetchChatMessages()
         }
+        .alert(item: $cloudError) { error in
+            Alert(
+                title: Text("There was an error."),
+                message: Text(error.message)
+            )
+        }
         .sheet(isPresented: $showingSignInWithAppleSheet,
                content: SignInView.init)
     }
@@ -159,7 +167,11 @@ struct SharedItemsView: View {
         }
 
         // If projects is empty after all data fetched, set load state to show no results.
-        operation.queryCompletionBlock = { _, _ in
+        operation.queryCompletionBlock = { _, error in
+            if let error = error {
+                cloudError = error.getCloudKitError()
+            }
+
             if items.isEmpty {
                 itemsLoadState = .noResults
             }
@@ -199,7 +211,11 @@ struct SharedItemsView: View {
         }
 
         // If projects is empty after all data fetched, set load state to show no results.
-        operation.queryCompletionBlock = { _, _ in
+        operation.queryCompletionBlock = { _, error in
+            if let error = error {
+                cloudError = error.getCloudKitError()
+            }
+
             if messages.isEmpty {
                 messagesLoadState = .noResults
             }
@@ -245,7 +261,7 @@ struct SharedItemsView: View {
         CKContainer.default().publicCloudDatabase.save(message) { record, error in
             if let error = error {
                 // Show the error and revert newChatText if something went wrong.
-                print(error.localizedDescription)
+                cloudError = error.getCloudKitError()
                 newChatText = backupChatText
             } else if let record = record {
                 // Append the user's message to messages array on success.
