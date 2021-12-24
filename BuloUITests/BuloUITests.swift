@@ -18,10 +18,10 @@ class BuloUITests: XCTestCase {
     }
 
     /// Verifies the app contains for tabs for the user to access.
-    func testAppHasFourTabs() {
+    func testAppHasFiveTabs() {
         XCTAssertEqual(app.tabBars.buttons.count,
-                       4,
-                       "There should be 4 tabs in the app.")
+                       5,
+                       "There should be 5 tabs in the app.")
     }
 
     func testOpenTabAddsProjects() {
