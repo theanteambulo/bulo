@@ -33,6 +33,10 @@ struct ItemListView: View {
                                    height: 44)
 
                         VStack(alignment: .leading) {
+                            Text(item.project?.projectTitle ?? "No title")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+
                             Text(item.itemTitle)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity,
@@ -45,9 +49,6 @@ struct ItemListView: View {
                                     .foregroundColor(.secondary)
                                     .multilineTextAlignment(.leading)
                             }
-
-                            Text(item.project?.projectTitle ?? "No title")
-                                .foregroundColor(.secondary)
                         }
                     }
                     .padding()
